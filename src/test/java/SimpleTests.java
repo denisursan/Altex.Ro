@@ -18,5 +18,7 @@ public class SimpleTests {
 
     @Test
     public void checkMainPage(){
+        System.out.println("ovidiu");
+
     }
 }
