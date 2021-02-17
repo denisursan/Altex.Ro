@@ -44,6 +44,8 @@ public class ImplementationLogInFeature {
         userButton.click();
         WebElement logInUserValidationButton = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/ul/li[1]/a"));
         logInUserValidationButton.click();
+        logInUserValidationButton.click();
+        //ceva
 
     }
 
