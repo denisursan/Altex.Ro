@@ -25,8 +25,5 @@ public class Utils {
         password.sendKeys("RRO_12345");
         WebElement autentificareButton = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/form/div[3]/span/button/div/div/div"));
         autentificareButton.click();
-
     }
-
-
 }
