@@ -2,6 +2,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import utils.LogInPage;
 
 public class SimpleTests {
 
@@ -12,7 +13,7 @@ public class SimpleTests {
     public void setup() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/seleniumdriver/chromedriver/chromedriver.exe");
         driver = new ChromeDriver();
-        logInPage = new LogInPage();
+        logInPage = new LogInPage(driver);
         driver.get("https://altex.ro/");
     }
 

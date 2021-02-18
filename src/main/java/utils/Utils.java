@@ -16,14 +16,5 @@ public class Utils {
         PageFactory.initElements(driver, this);
     }
 
-    public void inserUsernameAndPassword() {
-        WebElement contulMeuButton = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/a/div[3]/span"));
-        contulMeuButton.click();
-        WebElement username = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/form/input[1]"));
-        username.sendKeys("rovidyu@yahoo.com");
-        WebElement  password = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/form/input[2]"));
-        password.sendKeys("RRO_12345");
-        WebElement autentificareButton = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/form/div[3]/span/button/div/div/div"));
-        autentificareButton.click();
-    }
+
 }
