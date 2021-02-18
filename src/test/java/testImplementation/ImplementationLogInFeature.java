@@ -89,8 +89,13 @@ public class ImplementationLogInFeature {
     public void theUserIsAbleToLogOut() {
         WebElement logOutButton = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/ul/li[11]/a"));
         logOutButton.click();
+<<<<<<< HEAD
         WebElement LogInButton = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[2]/div/div/form/div[3]/button/div/div/div"));
         assertTrue(LogInButton.isDisplayed());
+=======
+        WebElement emailField = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[2]/div/div/form/input[1]"));
+        assertTrue(emailField.isDisplayed());
+>>>>>>> 3507b0b91363be125646ff21c0fbac9e86627f4a
     }
 
 }
