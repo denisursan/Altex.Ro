@@ -12,7 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.LogInPage;
-import utils.MainPage;
+import utils1.MainPage;
 import utils.Utils;
 
 import java.util.concurrent.TimeUnit;
@@ -92,6 +92,7 @@ public class ImplementationLogInFeature {
         WebElement LogInButton = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[2]/div/div/form/div[3]/button/div/div/div"));
         assertTrue(LogInButton.isDisplayed());
     }
+
 }
 
 

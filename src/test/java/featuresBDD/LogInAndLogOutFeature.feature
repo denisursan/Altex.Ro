@@ -1,4 +1,4 @@
-Feature: Test LogIn feature
+Feature: Test LogIn and Log Out feature
 
 
   Scenario: LogIn with valid credentials

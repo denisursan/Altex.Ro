@@ -1,4 +1,4 @@
-package utils;
+package utils1;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,5 +24,10 @@ public class MainPage {
         if(inapoiLaSite.isDisplayed()){
             inapoiLaSite.click();
         }
+    }
+
+    public void SearchFieldInput(String text){
+        WebElement searchField = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[4]/form/div/div[1]/input"));
+        searchField.sendKeys(text);
     }
 }
