@@ -22,43 +22,26 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Getter
 public class ImplementationLogInFeature {
-    WebDriver driver;
-    Utils utils;
-    WebDriverWait wait;
-    MainPage mainPage;
-    LogInPage logInPage;
 
+    BaseSetUp baseSetUp = new BaseSetUp(5);
 
-    @Before
-    public void setup() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/seleniumdriver/chromedriver/chromedriver 2");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        utils = new Utils(driver);
-        wait = new WebDriverWait(driver, 10);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        mainPage = new MainPage(driver);
-        logInPage = new LogInPage(driver);
-
-    }
-
-    @Given("User accesses https://altex.ro/")
+    @Given("User accesses Altex Website")
     public void userAccessesAltexWebsite() {
         // mainPage.openWebsite();
-        driver.get("https://altex.ro/");
-        mainPage.backToMainPage();
+        baseSetUp.driver.get("https://altex.ro/");
+        baseSetUp.mainPage.backToMainPage();
 
     }
 
     @When("I enter valid username and valid password")
     public void iEnterValidUsernameAndValidPassword() throws InterruptedException {
-        logInPage.insertValidUsernameAndPassword();
+        baseSetUp.logInPage.insertValidUsernameAndPassword();
         Thread.sleep(6000);
     }
 
     @Then("The user is able to LogIn")
     public void theUserIsAbleToLogIn() throws InterruptedException {
-        WebElement comenzileMele = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/ul/li[4]/a"));
+        WebElement comenzileMele = baseSetUp.driver.findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/ul/li[4]/a"));
         assertTrue(comenzileMele.isDisplayed());
     }
 
@@ -70,30 +53,30 @@ public class ImplementationLogInFeature {
 
     @When("I enter valid username and invalid password")
     public void iEnterValidUsernameAndInvalidPassword() {
-        logInPage.inserUsernameAndInvalidPassword();
+        baseSetUp.logInPage.inserUsernameAndInvalidPassword();
     }
 
     @Then("The user is not able to LogIn")
     public void theUserIsNotAbleToLogIn() {
-        WebElement autentificareButton = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/form/div[3]/span/button/div/div/div"));
+        WebElement autentificareButton = baseSetUp.driver.findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/form/div[3]/span/button/div/div/div"));
         assertTrue(autentificareButton.isDisplayed());
     }
 
 
     @When("I enter invalid username and valid password")
     public void iEnterInvalidUsernameAndValidPassword() {
-        logInPage.inserInvalidUsernameAndValidPassword();
+        baseSetUp.logInPage.inserInvalidUsernameAndValidPassword();
     }
 
     @And("The user is able to Log Out")
     public void theUserIsAbleToLogOut() {
-        WebElement logOutButton = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/ul/li[11]/a"));
+        WebElement logOutButton = baseSetUp.driver.findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/ul/li[11]/a"));
         logOutButton.click();
 
-        WebElement LogInButton = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[2]/div/div/form/div[3]/button/div/div/div"));
+        WebElement LogInButton = baseSetUp.driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[2]/div/div/form/div[3]/button/div/div/div"));
         assertTrue(LogInButton.isDisplayed());
 
-        WebElement emailField = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[2]/div/div/form/input[1]"));
+        WebElement emailField =baseSetUp.driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[2]/div/div/form/input[1]"));
         assertTrue(emailField.isDisplayed());
 
     }
