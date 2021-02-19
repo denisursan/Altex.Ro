@@ -44,7 +44,7 @@ public class ImplementationLogInFeature {
     }
 
 
-    @Given("User accesses https://altex.ro/")
+    @Given("^User accesses Altex website$")
     public void userAccessesAltexWebsite() {
         // mainPage.openWebsite();
         driver.get("https://altex.ro/");
@@ -52,42 +52,42 @@ public class ImplementationLogInFeature {
 
     }
 
-    @When("I enter valid username and valid password")
+    @When("^I enter valid username and valid password$")
     public void iEnterValidUsernameAndValidPassword() throws InterruptedException {
         logInPage.insertValidUsernameAndPassword();
         Thread.sleep(6000);
     }
 
-    @Then("The user is able to LogIn")
+    @Then("^The user is able to LogIn$")
     public void theUserIsAbleToLogIn() throws InterruptedException {
         WebElement comenzileMele = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/ul/li[4]/a"));
         assertTrue(comenzileMele.isDisplayed());
     }
 
-    @And("Closes browser")
+    @And("^Closes browser$")
     public void closesBrowser() {
         //  driver.quit();
     }
 
 
-    @When("I enter valid username and invalid password")
+    @When("I enter valid username and invalid password$")
     public void iEnterValidUsernameAndInvalidPassword() {
         logInPage.inserUsernameAndInvalidPassword();
     }
 
-    @Then("The user is not able to LogIn")
+    @Then("The user is not able to LogIn$")
     public void theUserIsNotAbleToLogIn() {
         WebElement autentificareButton = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/form/div[3]/span/button/div/div/div"));
         assertTrue(autentificareButton.isDisplayed());
     }
 
 
-    @When("I enter invalid username and valid password")
+    @When("^I enter invalid username and valid password$")
     public void iEnterInvalidUsernameAndValidPassword() {
         logInPage.inserInvalidUsernameAndValidPassword();
     }
 
-    @And("The user is able to Log Out")
+    @And("^The user is able to Log Out$")
     public void theUserIsAbleToLogOut() {
         WebElement logOutButton = driver.findElement(By.xpath("//*[@id=“__next”]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/ul/li[11]/a"));
         logOutButton.click();

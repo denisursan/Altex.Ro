@@ -41,7 +41,7 @@ public class ImplementationSearchFieldFeature{
 
 
 
-    @Given("User accesses the Altex Website")
+    @Given("User accesses Altex website")
     public void userAccessesTheAltexWebsite() {
         //driver.get("https://altex.ro/");
 
