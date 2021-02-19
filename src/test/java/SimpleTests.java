@@ -11,7 +11,7 @@ public class SimpleTests {
 
     @BeforeEach
     public void setup() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/seleniumdriver/chromedriver/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/seleniumdriver/chromedriver/chromedriver 2");
         driver = new ChromeDriver();
         logInPage = new LogInPage(driver);
         driver.get("https://altex.ro/");

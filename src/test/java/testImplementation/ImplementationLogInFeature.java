@@ -6,6 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lombok.Getter;
+import org.junit.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -35,12 +36,13 @@ public class ImplementationLogInFeature {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         utils = new Utils(driver);
+        logInPage = new LogInPage(driver);
+        mainPage = new MainPage(driver);
         wait = new WebDriverWait(driver, 10);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        mainPage = new MainPage(driver);
         logInPage = new LogInPage(driver);
-
     }
+
 
     @Given("User accesses https://altex.ro/")
     public void userAccessesAltexWebsite() {

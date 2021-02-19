@@ -20,7 +20,7 @@ public class MainPage {
     }
 
     public void backToMainPage(){
-        WebElement inapoiLaSite= driver.findElement(By.xpath("//*[@id=\"page-promo\"]/header/div/div[1]/div/nav/div/div[1]/a"));
+        WebElement inapoiLaSite = driver.findElement(By.xpath("//*[@id=\"page-promo\"]/header/div/div[1]/div/nav/div/div[1]/a"));
         if(inapoiLaSite.isDisplayed()){
             inapoiLaSite.click();
         }
