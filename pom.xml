@@ -35,24 +35,6 @@
             <version>2.2</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>com.codeborne</groupId>
-            <artifactId>phantomjsdriver</artifactId>
-            <version>1.4.1</version>
-            <!--scope>runtime</scope-->
-            <scope>compile</scope>
-            <!--exclusions>
-              <exclusion>
-                <artifactId>selenium-java</artifactId>
-                <groupId>org.seleniumhq.selenium</groupId>
-              </exclusion>
-              <exclusion>
-                <artifactId>selenium-remote-driver</artifactId>
-                <groupId>org.seleniumhq.selenium</groupId>
-              </exclusion>
-            </exclusions-->
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
