@@ -1,6 +1,6 @@
 Feature: Test LogIn feature
 
-
+@SimpleTest
   Scenario: LogIn with valid credentials
     Given User accesses Altex website
     When I enter valid username and valid password

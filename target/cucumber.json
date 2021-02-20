@@ -1,0 +1,77 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2021-02-20T16:05:43.824Z",
+        "line": 4,
+        "name": "LogIn with valid credentials",
+        "description": "",
+        "id": "test-login-feature;login-with-valid-credentials",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 18648651000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "User accesses Altex website",
+            "match": {
+              "location": "testImplementation.ImplementationLogInFeature.userAccessesAltexWebsite()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2872639000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I enter valid username and valid password",
+            "match": {
+              "location": "testImplementation.ImplementationLogInFeature.iEnterValidUsernameAndValidPassword()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 395128000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "The user is able to LogIn",
+            "match": {
+              "location": "testImplementation.ImplementationLogInFeature.theUserIsAbleToLogIn()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 294000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "Closes browser",
+            "match": {
+              "location": "testImplementation.ImplementationLogInFeature.closesBrowser()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@SimpleTest"
+          }
+        ]
+      }
+    ],
+    "name": "Test LogIn feature",
+    "description": "",
+    "id": "test-login-feature",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/featuresBDD/LogIn.feature",
+    "tags": []
+  }
+]

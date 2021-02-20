@@ -3,12 +3,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import utils.LogInPage;
 import utils.MainPage;
+import utils.ProductsPage;
+
 import java.util.concurrent.TimeUnit;
 
 public class BaseSetUp {
     MainPage mainPage;
     WebDriver driver;
     LogInPage logInPage;
+    ProductsPage productsPage;
 
     BaseSetUp(int wait) {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/seleniumdriver/chromedriver/chromedriver 2");
@@ -17,5 +20,6 @@ public class BaseSetUp {
         driver.manage().timeouts().implicitlyWait(wait, TimeUnit.SECONDS);
         logInPage= new LogInPage(driver);
         mainPage = new MainPage(driver);
+        productsPage= new ProductsPage(driver);
     }
 }

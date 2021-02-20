@@ -10,7 +10,7 @@ public class ImplementationLogInFeature {
 
     public ImplementationLogInFeature(){}
 
-    BaseSetUp baseSetUp = new BaseSetUp(0);
+    BaseSetUp baseSetUp = new BaseSetUp(7);
 
     @Given("^User accesses Altex website$")
     public void userAccessesAltexWebsite() {
@@ -21,7 +21,7 @@ public class ImplementationLogInFeature {
     @When("^I enter valid username and valid password$")
     public void iEnterValidUsernameAndValidPassword() {
         baseSetUp.logInPage.insertValidUsernameAndPassword();
-        baseSetUp.driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
+
     }
 
     @Then("^The user is able to LogIn$")
@@ -31,7 +31,7 @@ public class ImplementationLogInFeature {
 
     @And("^Closes browser$")
     public void closesBrowser() {
-        //  driver.quit();
+          baseSetUp.driver.quit();
     }
 
 
@@ -55,7 +55,7 @@ public class ImplementationLogInFeature {
     @And("^The user is able to Log Out$")
     public void theUserIsAbleToLogOut() {
 
-        assertTrue(baseSetUp.mainPage.getLogOutBtn().isDisplayed());
+        baseSetUp.mainPage.getLogOutBtn().click();
     }
 }
 
