@@ -11,7 +11,11 @@ public class SimpleTests {
 
     @BeforeEach
     public void setup() {
+<<<<<<< HEAD
         System.setProperty( "webdriver.chrome.driver","src/main/resources/seleniumdriver/chromedriver/chromedriver 2");
+=======
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/seleniumdriver/chromedriver/chromedriver 2");
+>>>>>>> Branch-Denis
         driver = new ChromeDriver();
         logInPage = new LogInPage(driver);
         driver.get("https://altex.ro/");
