@@ -38,7 +38,6 @@ public class BaseSetUp {
        }
    }
 
-=======
     MainPage mainPage;
     WebDriver driver;
     LogInPage logInPage;
@@ -54,4 +53,4 @@ public class BaseSetUp {
         productsPage= new ProductsPage(driver);
     }
 }
->>>>>>> Branch-Denis
+

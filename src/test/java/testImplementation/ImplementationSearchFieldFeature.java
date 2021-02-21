@@ -9,18 +9,17 @@ import org.junit.BeforeClass;
 import org.openqa.selenium.By;
 <<<<<<< HEAD
 =======
-import org.openqa.selenium.Keys;
->>>>>>> Branch-Denis
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.LogInPage;
-<<<<<<< HEAD
+
 import utils1.MainPage;
 import utils.Utils;
 
-=======
+
 import utils.MainPage;
 import utils.Utils;
 
@@ -32,7 +31,7 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ImplementationSearchFieldFeature {
-<<<<<<< HEAD
+
  BaseSetUp baseSetUp= new BaseSetUp(5);
 
     @Given("User accesses the Altex Website")
@@ -45,7 +44,7 @@ public class ImplementationSearchFieldFeature {
     public void userInsertsLaptopInTheSearchField() {
         String text = "Laptop";
        baseSetUp.mainPage.SearchFieldInput(text);
-=======
+
     BaseSetUp baseSetUp = new BaseSetUp(5);
 
 
@@ -61,30 +60,30 @@ public class ImplementationSearchFieldFeature {
         String text = "laptop";
         baseSetUp.mainPage.getSearchFIeldBtn().sendKeys(text);
         baseSetUp.mainPage.getCautaBtn().click();
->>>>>>> Branch-Denis
+
     }
 
     @Then("User receives laptop results")
     public void userReceivesLaptopResults() {
-<<<<<<< HEAD
+
         WebElement rezultateCautare = baseSetUp.driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[2]/div[1]/div[1]/h1"));
         assertTrue(rezultateCautare.isDisplayed());
-=======
+
         WebElement ulElm = baseSetUp.driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[2]/div[1]/div[2]/ul"));
         List<WebElement> liElements = ulElm.findElements(By.tagName("li"));
         assertTrue(baseSetUp.productsPage.findCategoryByText(liElements, "Laptop".toLowerCase(Locale.ROOT)));
 
->>>>>>> Branch-Denis
+
     }
 
     @And("Close browser")
     public void closeBrowser() {
-<<<<<<< HEAD
+
         //  driver.quit();
     }
 
 
-=======
+
         // baseSetUp.driver.quit();
     }
 
@@ -129,5 +128,5 @@ public class ImplementationSearchFieldFeature {
         List<WebElement> liElements = ulElm.findElements(By.tagName("li"));
         assertTrue(baseSetUp.productsPage.findCategoryByText(liElements, "Anvelopa".toLowerCase(Locale.ROOT)));
     }
->>>>>>> Branch-Denis
+
 }
