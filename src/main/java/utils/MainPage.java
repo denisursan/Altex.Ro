@@ -1,4 +1,4 @@
-package utils1;
+package utils;
 
 import lombok.Getter;
 import org.openqa.selenium.WebDriver;
