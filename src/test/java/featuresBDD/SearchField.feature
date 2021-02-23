@@ -1,5 +1,6 @@
 Feature: Test Search Field
 
+  @SimpleTest
   Scenario: Check if user is able to search for a product by "Cauta" button
     Given User accesses Altex site
     When User inserts Laptop in the Search Field and clicks on the search button

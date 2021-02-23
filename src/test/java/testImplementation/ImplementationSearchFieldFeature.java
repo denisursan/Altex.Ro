@@ -50,7 +50,7 @@ public class ImplementationSearchFieldFeature {
 
     @And("Close browser")
     public void closeBrowser() {
-        // baseSetUp.driver.quit();
+        baseSetUp.driver.quit();
     }
 
     @When("User inserts Iphone in the Search Field and presses ENTER key")
