@@ -1,10 +1,7 @@
 package testImplementation;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import utils.LogInPage;
-import utils.MainPage;
-import utils.ProductsPage;
-import utils.UtilsButtons;
+import utils.*;
 
 import java.util.concurrent.TimeUnit;
 
@@ -14,6 +11,7 @@ public class BaseSetUp {
     LogInPage logInPage;
     ProductsPage productsPage;
     UtilsButtons utilsButtons;
+    Utils utils;
 
     BaseSetUp(int wait) {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/seleniumdriver/chromedriver/chromedriver.exe");
@@ -23,6 +21,7 @@ public class BaseSetUp {
         logInPage= new LogInPage(driver);
         mainPage = new MainPage(driver);
         productsPage= new ProductsPage(driver);
+        utilsButtons = new UtilsButtons(driver);
         utilsButtons = new UtilsButtons(driver);
     }
 }

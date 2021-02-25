@@ -78,4 +78,64 @@ public class ImplementationShoppingCartFeature {
         assertEquals(counter, 2);
 
     }
+
+    @When("User clicks on Cosul meu btn")
+    public void userClicksOnCosulMeuBtn() {
+        baseSetUp.mainPage.getCosulMeubtn().click();
+    }
+
+    @Then("User is prompted with a message saying that Nu exista produse and is not able to access the basket")
+    public void userIsPromptedWithAMessageSayingThatNuExistaProduseAndIsNotAbleToAccessTheBasket() {
+        baseSetUp.utilsButtons.getNuExistaProduseInCosMessage().isDisplayed();
+    }
+
+
+    @When("User navigates to Produse tab -> Electrocanice mari -> Uscatoare de rufe and adds a random product to the basket")
+    public void userNavigatesToProduseTabElectrocaniceMariMasiniDeSpalatRufeAndAddsARandomProductToTheBasket() {
+        baseSetUp.utilsButtons.getElectrocasniceMariInProduse().click();
+        baseSetUp.utilsButtons.getCuptoareCuMicrounde().click();
+        baseSetUp.utilsButtons.getAdaugaInCosCuptorCUMicrounde().click();
+    }
+
+    @And("User clicks on the Vezi cosul button")
+    public void userClicksOnTheVeziCosulButton() throws InterruptedException {
+        Thread.sleep(3000);
+        baseSetUp.utilsButtons.getVeziCosulbtn().click();
+
+    }
+
+    @And("User clicks on Acasa button located in the top left corner")
+    public void userClicksOnAcasaButtonLocatedInTheTopLeftCorner() {
+        baseSetUp.utilsButtons.getAcasaBtn().click();
+    }
+
+    @And("User clicks on Cosul meu button and a drop down opens")
+    public void userClicksOnCosulMeuButtonAndADropDownOpens() {
+        baseSetUp.mainPage.getCosulMeubtn().click();
+    }
+
+    @Then("User clicks on Vezi cosul button")
+    public void userClicksOnVeziCosulButton() {
+        baseSetUp.utilsButtons.getVeziCosulFromCosulMeu().click();
+        baseSetUp.utilsButtons.getCosTitleFromBasket().isDisplayed();
+
+    }
+
+    @When("User navigates to telefoane and adds three products in the basket")
+    public void userNavigatesToTelefoaneAndAddsProductsInTheBasket() {
+        baseSetUp.utilsButtons.getTelefoaneTablete().click();
+        baseSetUp.utilsButtons.getTelefoane().click();
+
+
+    }
+
+    @And("User click on Cosul meu button and a drop down opens")
+    public void userClickOnButtonAndADropDownOpens() {
+        baseSetUp.mainPage.getCosulMeubtn().click();
+    }
+
+    @Then("User must see the added products in the basket")
+    public void userMustSeeTheAddedProductsInTheBasket() {
+
+    }
 }

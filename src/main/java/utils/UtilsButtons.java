@@ -11,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 public class UtilsButtons {
     WebDriver driver;
 
+
     public UtilsButtons(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -21,6 +22,8 @@ public class UtilsButtons {
 
     @FindBy(xpath = "/html/body/div[2]/div[2]/div[3]/a/div/div/div")
     private WebElement veziCosulbtn;
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[2]/div/div[2]/div/div[3]/a/div/div/div")
+    private WebElement veziCosulFromCosulMeu;
 
     @FindBy(xpath = "/html/body/div[2]/div[2]/div[3]/div/button/div/div/div")
     private WebElement inapoiButton;
@@ -37,9 +40,36 @@ public class UtilsButtons {
     @FindBy(xpath = "//*[@id=\"checkout\"]/div/section/div/div[1]/ul/li/div/div/div[2]/div/div")
     private WebElement numberOfElementsFromBasket;
 
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[2]/div/div[2]/p")
+    private WebElement nuExistaProduseInCosMessage;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[2]/div[2]/ul/li[1]/ul/li[5]/a")
+    private WebElement electrocasniceMariInProduse;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[2]/div[2]/ul/li[1]/ul/li[5]/div/ul/li[9]/a/img")
+    private WebElement cuptoareCuMicrounde;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/main/div[1]/ol/li[1]/a")
+    private WebElement acasaBtn;
+
+    @FindBy(xpath = "//*[@id=\"checkout\"]/div/section/div/h2")
+    private WebElement cosTitleFromBasket;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[2]/div[2]/ul/li[1]/ul/li[1]/a")
+    private WebElement telefoaneTablete;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[2]/div[2]/ul/li[1]/ul/li[1]/div/div/ul/li[1]/a")
+    private WebElement telefoane;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[3]/main/div[2]/div[1]/div[2]/ul/li[1]/div/div[2]/div[1]/div[2]/div[1]/div/div/div/div/button/div/div[2]/div")
+    private WebElement adaugaInCosCuptorCUMicrounde;
+
+
     public int getNumberOfItemsFromTheBasket(){
         return Integer.parseInt(numberOfElementsFromBasket.getAttribute("class"));
 
     }
+
+
 
 }

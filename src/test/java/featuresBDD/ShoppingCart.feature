@@ -27,3 +27,25 @@ Feature: Test Shopping Cart
     And User clicks on Vezi cosul btn
     Then User clicks on + sign 2 times and on - one time in order to increase and decrese the quantity of the products
     And Closes the browser
+
+  Scenario: User is not able to acces the basket if no product is added to itet
+    Given User accesses the Altex site
+    When User clicks on Cosul meu btn
+    Then User is prompted with a message saying that Nu exista produse and is not able to access the basket
+    And Closes the browser
+
+  Scenario: User is able to access the basket only if adding a product to it
+    Given User accesses the Altex site
+    When User navigates to Produse tab -> Electrocanice mari -> Uscatoare de rufe and adds a random product to the basket
+    And User clicks on the Vezi cosul button
+    And User clicks on Acasa button located in the top left corner
+    And User clicks on Cosul meu button and a drop down opens
+    Then User clicks on Vezi cosul button
+    And Closes the browser
+
+    Scenario: Check if the products are displayed in the "Cosul meu" drop-down
+      Given User accesses the Altex site
+      When User navigates to telefoane and adds three products in the basket
+      And User click on Cosul meu button and a drop down opens
+      Then User must see the added products in the basket
+      And Closes browser
