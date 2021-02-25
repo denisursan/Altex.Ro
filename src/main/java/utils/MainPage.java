@@ -33,8 +33,11 @@ public class MainPage {
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[4]/form/div/div[2]/button/div/div/div")
     private WebElement cautaBtn;
 
-    @FindBy (xpath = "//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[2]/a/div[3]")
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[2]/a/div[3]")
     private WebElement cosulMeubtn;
+
+    @FindBy(xpath = "//*[@id=\"notice-cookie-block\"]/div/div[2]/button")
+    private WebElement acceptaBtn;
 
 
     public void openWebsite() {
@@ -42,13 +45,20 @@ public class MainPage {
     }
 
     public void backToMainPage() {
-        if (inapoiLaSiteBtn.isDisplayed()) {
+        if (inapoiLaSiteBtn != null) {
             inapoiLaSiteBtn.click();
         }
     }
 
-    public void SearchFieldInput(String text){
+
+    public void SearchFieldInput(String text) {
         WebElement searchField = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[4]/form/div/div[1]/input"));
         searchField.sendKeys(text);
+    }
+
+    public void acceptaButton() {
+        if (acceptaBtn.isDisplayed()) {
+            acceptaBtn.click();
+        }
     }
 }

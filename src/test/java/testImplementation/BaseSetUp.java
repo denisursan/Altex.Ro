@@ -12,6 +12,7 @@ public class BaseSetUp {
     ProductsPage productsPage;
     UtilsButtons utilsButtons;
     Utils utils;
+    ProductCategories productCategories;
 
     BaseSetUp(int wait) {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/seleniumdriver/chromedriver/chromedriver.exe");
@@ -22,6 +23,7 @@ public class BaseSetUp {
         mainPage = new MainPage(driver);
         productsPage= new ProductsPage(driver);
         utilsButtons = new UtilsButtons(driver);
-        utilsButtons = new UtilsButtons(driver);
+        utils = new Utils( driver);
+        productCategories = new ProductCategories(driver);
     }
 }

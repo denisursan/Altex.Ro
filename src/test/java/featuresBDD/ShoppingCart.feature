@@ -43,9 +43,16 @@ Feature: Test Shopping Cart
     Then User clicks on Vezi cosul button
     And Closes the browser
 
-    Scenario: Check if the products are displayed in the "Cosul meu" drop-down
+    Scenario: Check if all the products added to the basket are displayed
       Given User accesses the Altex site
       When User navigates to telefoane and adds three products in the basket
-      And User click on Cosul meu button and a drop down opens
+      And User clicks on Cosul meu btn and then on Vezi cosul meu btn
       Then User must see the added products in the basket
-      And Closes browser
+      And Closes the browser
+
+  Scenario: Check if the products are displayed in the "Cosul meu" drop-down
+    Given User accesses the Altex site
+    When User navigates to telefoane and adds three products in the basket
+    And User clicks on Cosul meu btn
+    Then User must see the added products in the drop-down basket
+    And Closes the browser

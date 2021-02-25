@@ -5,12 +5,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lombok.Getter;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
-import javax.sql.rowset.WebRowSet;
-import java.util.List;
-import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -22,7 +16,7 @@ public class ImplementationShoppingCartFeature {
     @Given("User accesses the Altex site")
     public void userAccessesTheAltexSite() {
         baseSetUp.mainPage.openWebsite();
-        baseSetUp.mainPage.backToMainPage();
+        //baseSetUp.mainPage.backToMainPage();
 
     }
 
@@ -57,7 +51,7 @@ public class ImplementationShoppingCartFeature {
 
     @And("Clicks on Inapoi btn")
     public void clicksOnInapoiBtn() {
-        baseSetUp.utilsButtons.getInapoiButton().click();
+        baseSetUp.utilsButtons.getInapoiBtnFromBasket().click();
     }
 
     @Then("User clicks on Cosul meu btn and then on X button")
@@ -92,9 +86,9 @@ public class ImplementationShoppingCartFeature {
 
     @When("User navigates to Produse tab -> Electrocanice mari -> Uscatoare de rufe and adds a random product to the basket")
     public void userNavigatesToProduseTabElectrocaniceMariMasiniDeSpalatRufeAndAddsARandomProductToTheBasket() {
-        baseSetUp.utilsButtons.getElectrocasniceMariInProduse().click();
-        baseSetUp.utilsButtons.getCuptoareCuMicrounde().click();
-        baseSetUp.utilsButtons.getAdaugaInCosCuptorCUMicrounde().click();
+        baseSetUp.productCategories.getElectrocasniceMariInProduse().click();
+        baseSetUp.productCategories.getCuptoareCuMicrounde().click();
+        baseSetUp.productCategories.getAdaugaInCosCuptorCUMicrounde().click();
     }
 
     @And("User clicks on the Vezi cosul button")
@@ -122,20 +116,33 @@ public class ImplementationShoppingCartFeature {
     }
 
     @When("User navigates to telefoane and adds three products in the basket")
-    public void userNavigatesToTelefoaneAndAddsProductsInTheBasket() {
-        baseSetUp.utilsButtons.getTelefoaneTablete().click();
-        baseSetUp.utilsButtons.getTelefoane().click();
-
+    public void userNavigatesToTelefoaneAndAddsProductsInTheBasket() throws InterruptedException {
+        baseSetUp.productCategories.getTelefoaneTablete().click();
+        baseSetUp.productCategories.getTelefoane().click();
+        baseSetUp.productCategories.getAdaugaInCosTelefon1().click();
+        baseSetUp.mainPage.acceptaButton();
+        baseSetUp.utilsButtons.getInapoiBtnFromBasket().click();
+        baseSetUp.productCategories.getAdaugaInCosTelefon2().click();
+        baseSetUp.utilsButtons.getInapoiBtnFromBasket().click();
+        baseSetUp.productCategories.getAdaugaInCosTelefon3().click();
+        baseSetUp.utilsButtons.getInapoiBtnFromBasket().click();
 
     }
 
-    @And("User click on Cosul meu button and a drop down opens")
+    @And("User clicks on Cosul meu btn and then on Vezi cosul meu btn")
     public void userClickOnButtonAndADropDownOpens() {
         baseSetUp.mainPage.getCosulMeubtn().click();
+        baseSetUp.utilsButtons.getVeziCosulFromCosulMeu().click();
     }
 
     @Then("User must see the added products in the basket")
     public void userMustSeeTheAddedProductsInTheBasket() {
+        assertTrue(baseSetUp.productCategories.checkIfProductsArePresentInTheBasket());
 
+    }
+
+    @Then("User must see the added products in the drop-down basket")
+    public void userMustSeeTheAddedProductsInTheDropDownBasket() {
+        assertTrue(baseSetUp.productCategories.checkIfProductsArePresentInTheDropDownBasket());
     }
 }
