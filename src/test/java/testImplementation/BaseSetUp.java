@@ -1,4 +1,5 @@
 package testImplementation;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import utils.*;
@@ -13,9 +14,10 @@ public class BaseSetUp {
     UtilsButtons utilsButtons;
     Utils utils;
     ProductCategories productCategories;
+    SocialMediaButtons socialMediaButtons;
 
     BaseSetUp(int wait) {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/seleniumdriver/chromedriver/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/seleniumdriver/chromedriver/chromedriver 2");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(wait, TimeUnit.SECONDS);
@@ -25,5 +27,6 @@ public class BaseSetUp {
         utilsButtons = new UtilsButtons(driver);
         utils = new Utils( driver);
         productCategories = new ProductCategories(driver);
+        socialMediaButtons = new SocialMediaButtons(driver);
     }
 }

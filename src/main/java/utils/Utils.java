@@ -17,6 +17,12 @@ public class Utils {
         PageFactory.initElements(driver, this);
     }
 
+    public void scrollToElement() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+       // ((JavascriptExecutor)driver).executeScript("window.scrollTo(0,document.body.scr‌​ollHeight);");
+    }
+
 
 
 }
