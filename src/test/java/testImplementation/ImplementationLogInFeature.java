@@ -15,7 +15,7 @@ public class ImplementationLogInFeature {
     @Given("^User accesses Altex website$")
     public void userAccessesAltexWebsite() {
         baseSetUp.mainPage.openWebsite();
-        baseSetUp.mainPage.backToMainPage();
+        //baseSetUp.mainPage.backToMainPage();
     }
 
     @When("^I enter valid username and valid password$")
@@ -56,6 +56,30 @@ public class ImplementationLogInFeature {
     public void theUserIsAbleToLogOut() {
 
         baseSetUp.mainPage.getLogOutBtn().click();
+    }
+
+    @When("User clicks Contul meu btn")
+    public void userClicksContulMeuBtn() {
+        baseSetUp.mainPage.getContulMeuButton().click();
+    }
+
+    @And("User clicks on Inregistrare btn")
+    public void userClicksOnInregistrareBtn() {
+        baseSetUp.mainPage.getInregistrareBtn().click();
+    }
+
+    @Then("User enters valid username and valid password")
+    public void userEntersValidUsernameAndValidPassword() {
+        baseSetUp.logInPage.insertValidUsernameAndPasswordInAmDejaCont();
+
+    }
+
+    @And("User is able to Log In")
+    public void userIsAbleToLogIn() throws InterruptedException {
+        Thread.sleep(5000);
+        baseSetUp.mainPage.getContulMeuButton().click();
+        assertTrue(baseSetUp.mainPage.getComenzileMeleBtnFromAmDejaCont().isDisplayed());
+
     }
 }
 
