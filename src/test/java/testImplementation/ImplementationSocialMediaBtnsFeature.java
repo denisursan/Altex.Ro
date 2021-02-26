@@ -19,6 +19,8 @@ public class ImplementationSocialMediaBtnsFeature {
     @Given("Open website")
     public void userAccessesTheAltexSite() throws InterruptedException {
         baseSetUp.mainPage.openWebsite();
+        baseSetUp.mainPage.backToMainPage();
+
 
 
     }

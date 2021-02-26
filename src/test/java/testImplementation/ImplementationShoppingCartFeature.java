@@ -16,7 +16,7 @@ public class ImplementationShoppingCartFeature {
     @Given("User accesses the Altex site")
     public void userAccessesTheAltexSite() {
         baseSetUp.mainPage.openWebsite();
-        //baseSetUp.mainPage.backToMainPage();
+        baseSetUp.mainPage.backToMainPage();
 
     }
 

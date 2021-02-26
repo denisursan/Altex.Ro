@@ -1,15 +1,14 @@
 package utils;
 
 import lombok.Getter;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 @Getter
 public class MainPage {
-
     WebDriver driver;
 
     public MainPage(WebDriver driver) {
@@ -40,15 +39,38 @@ public class MainPage {
     private WebElement acceptaBtn;
 
 
+
     public void openWebsite() {
         driver.get("https://altex.ro/");
     }
 
+
+
     public void backToMainPage() {
-        if (inapoiLaSiteBtn != null) {
-            inapoiLaSiteBtn.click();
+        try {
+            if (!driver.findElements(By.xpath("//*[@id=\"page-promo\"]/header/div/div[1]/div/nav/div/div[1]/a")).isEmpty()) {
+                try {
+                    driver.findElement(By.xpath("//*[@id=\"page-promo\"]/header/div/div[1]/div/nav/div/div[1]/a")).click();
+                } catch (NoSuchElementException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                try {
+                    System.out.println("no elements found");
+                } catch (NoSuchElementException e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
+
+
+
+
+
+
 
 
     public void SearchFieldInput(String text) {
