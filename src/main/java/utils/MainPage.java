@@ -54,6 +54,7 @@ public class MainPage {
                 } catch (NoSuchElementException e) {
                     e.printStackTrace();
                 }
+
             } else {
                 try {
                     System.out.println("no elements found");
@@ -65,12 +66,6 @@ public class MainPage {
             e.printStackTrace();
         }
     }
-
-
-
-
-
-
 
 
     public void SearchFieldInput(String text) {
