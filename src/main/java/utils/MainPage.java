@@ -2,6 +2,7 @@ package utils;
 
 import lombok.Getter;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -45,8 +46,12 @@ public class MainPage {
     }
 
     public void backToMainPage() {
-        if (inapoiLaSiteBtn != null) {
-            inapoiLaSiteBtn.click();
+        try {
+            WebElement backToSiteBtn = driver.findElement(By.xpath("//*[@id=\"page-promo\"]/header/div/div[1]/div/nav/div/div[1]/a"));
+            backToSiteBtn.click();
+        }
+        catch(NoSuchElementException e) {
+            e.printStackTrace();
         }
     }
 
