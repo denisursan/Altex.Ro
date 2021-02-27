@@ -47,22 +47,12 @@ public class MainPage {
 
 
     public void backToMainPage() {
-        try {
-            if (!driver.findElements(By.xpath("//*[@id=\"page-promo\"]/header/div/div[1]/div/nav/div/div[1]/a")).isEmpty()) {
-                try {
-                    driver.findElement(By.xpath("//*[@id=\"page-promo\"]/header/div/div[1]/div/nav/div/div[1]/a")).click();
-                } catch (NoSuchElementException e) {
-                    e.printStackTrace();
-                }
 
-            } else {
-                try {
-                    System.out.println("no elements found");
-                } catch (NoSuchElementException e) {
-                    e.printStackTrace();
-                }
-            }
-        } catch (Exception e) {
+        try {
+            WebElement backToSiteBtn = driver.findElement(By.xpath("//*[@id=\"page-promo\"]/header/div/div[1]/div/nav/div/div[1]/a"));
+            backToSiteBtn.click();
+        }
+        catch(NoSuchElementException e) {
             e.printStackTrace();
         }
     }
