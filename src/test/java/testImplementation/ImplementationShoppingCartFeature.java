@@ -5,6 +5,10 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lombok.Getter;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -12,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @Getter
 public class ImplementationShoppingCartFeature {
     BaseSetUp baseSetUp = new BaseSetUp(5);
+    String productName;
 
     @Given("User accesses the Altex site")
     public void userAccessesTheAltexSite() {
@@ -28,7 +33,9 @@ public class ImplementationShoppingCartFeature {
 
     @And("Clicks on a product from the suggested list")
     public void clicksOnAProductFromTheSuggestedList() {
-        baseSetUp.productsPage.getFirstElementFromSearchFieldSuggestedList().click();
+        WebElement firstElement = baseSetUp.productsPage.getFirstElementFromSearchFieldSuggestedList();
+        productName = firstElement.getText();
+        firstElement.click();
     }
 
     @And("Clicks on a product from the by clicking on Adauga in cos btn")
@@ -38,6 +45,9 @@ public class ImplementationShoppingCartFeature {
 
     @Then("User clicks on Vezi cosul btn")
     public void userClickOnVeziCosulBtn() throws InterruptedException {
+        Thread.sleep(3000);
+        baseSetUp.utilsButtons.getAcceptaConditiiBtn().click();
+        baseSetUp.utils.scrollToElement();
         Thread.sleep(3000);
         baseSetUp.utilsButtons.getVeziCosulbtn().click();
         baseSetUp.productsPage.getAssertProductDisplayedInTheShoppingCart().isDisplayed();
@@ -51,6 +61,8 @@ public class ImplementationShoppingCartFeature {
 
     @And("Clicks on Inapoi btn")
     public void clicksOnInapoiBtn() {
+        baseSetUp.utils.scrollToElement();
+        baseSetUp.utilsButtons.getAcceptaConditiiBtn().click();
         baseSetUp.utilsButtons.getInapoiBtnFromBasket().click();
     }
 
@@ -65,11 +77,28 @@ public class ImplementationShoppingCartFeature {
     @Then("User clicks on + sign 2 times and on - one time in order to increase and decrese the quantity of the products")
     public void userClickOnSignInOrderToIncreaseTheQuantityOfTheProducts() throws InterruptedException {
         baseSetUp.utilsButtons.getIncreaseNumberOfItemsBtnFromCosulMeu().click();
-        baseSetUp.utilsButtons.getIncreaseNumberOfItemsBtnFromCosulMeu().click();
-        baseSetUp.utilsButtons.getDereaseNumberOfItemsBtnFromCosulMeu().click();
         Thread.sleep(3000);
-        int counter = baseSetUp.utilsButtons.getNumberOfItemsFromTheBasket();
-        assertEquals(counter, 2);
+        baseSetUp.utilsButtons.getIncreaseNumberOfItemsBtnFromCosulMeu().click();
+        Thread.sleep(3000);
+        baseSetUp.utilsButtons.getDecreaseNumberOfItemsBtnFromCosulMeu().click();
+        Thread.sleep(3000);
+        List<WebElement> cartItems = baseSetUp.driver.findElements(By.className("Cart-itemContainer"));
+        for (WebElement cartItem:
+             cartItems) {
+            String cartItemText = cartItem.findElement(By.className("Media-link")).getText();
+            if (cartItemText.contains(productName)){
+                WebElement quantity = cartItem.findElement(By.className("Cart-column--qty"));
+                String value = quantity.findElement(By.className("u-space-p-5")).getText();
+                assertEquals("2",value);
+            }
+        }
+
+
+
+
+
+
+      //  assertEquals(counter, 2);
 
     }
 

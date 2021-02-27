@@ -26,6 +26,9 @@ public class UtilsButtons {
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[2]/div/div[2]/div/div[3]/a/div/div/div")
     private WebElement veziCosulFromCosulMeu;
 
+    @FindBy(xpath = "//*[@id=\"notice-cookie-block\"]/div/div[2]/button")
+    private WebElement acceptaConditiiBtn;
+
     @FindBy(xpath = "/html/body/div[2]/div[2]/div[3]/div/button/div/div/div")
     private WebElement inapoiBtnFromBasket;
 
@@ -36,7 +39,7 @@ public class UtilsButtons {
     private WebElement increaseNumberOfItemsBtnFromCosulMeu;
 
     @FindBy(xpath = "//*[@id=\"checkout\"]/div/section/div/div[1]/ul/li/div/div/div[2]/div/button[1]")
-    private WebElement dereaseNumberOfItemsBtnFromCosulMeu;
+    private WebElement decreaseNumberOfItemsBtnFromCosulMeu;
 
     @FindBy(xpath = "//*[@id=\"checkout\"]/div/section/div/div[1]/ul/li/div/div/div[2]/div/div")
     private WebElement numberOfElementsFromBasket;
@@ -50,11 +53,11 @@ public class UtilsButtons {
     @FindBy(xpath = "//*[@id=\"checkout\"]/div/section/div/h2")
     private WebElement cosTitleFromBasket;
 
-    public int getNumberOfItemsFromTheBasket(){
-        return Integer.parseInt(numberOfElementsFromBasket.getAttribute("class"));
-
-    }
-
+//    public int getNumberOfItemsFromTheBasket(){
+//        return Integer.parseInt(numberOfElementsFromBasket.getAttribute("u-space-p-5"));
+//
+//    }
+//
 
 
 }

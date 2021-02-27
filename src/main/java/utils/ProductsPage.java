@@ -32,7 +32,7 @@ public class ProductsPage {
     private WebElement anvelopaCategorySuggested;
 
     @FindBy (xpath = "//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[4]/form/div/div[1]/div[3]/div[1]/div[2]/ul/li[1]/div[2]")
-    private WebElement firstElementFromSearchFieldSuggestedList;
+    public WebElement firstElementFromSearchFieldSuggestedList;
 
     @FindBy(xpath = "/html/body/div[2]/div[2]/div[3]/a/div/div/div")
     private WebElement assertProductDisplayedInTheShoppingCart;
@@ -46,6 +46,20 @@ public class ProductsPage {
         }
         return false;
     }
+
+
+    public WebElement findAttributefromElement(List<WebElement> liElements, int numberOfProducts) {
+        for (WebElement element :
+                liElements) {
+            WebElement divelement = element.findElement(By.tagName("div.u-space-p-5"));
+            if (divelement.getAttribute("div").contains("2")){
+                return divelement;
+            }
+
+        }
+       return null;
+    }
+
 
 }
 
