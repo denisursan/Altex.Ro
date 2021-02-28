@@ -1,4 +1,5 @@
 package testImplementation;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -21,11 +22,11 @@ public class BaseSetUp {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(wait, TimeUnit.SECONDS);
-        logInPage= new LogInPage(driver);
+        logInPage = new LogInPage(driver);
         mainPage = new MainPage(driver);
-        productsPage= new ProductsPage(driver);
+        productsPage = new ProductsPage(driver);
         utilsButtons = new UtilsButtons(driver);
-        utils = new Utils( driver);
+        utils = new Utils(driver);
         productCategories = new ProductCategories(driver);
         socialMediaButtons = new SocialMediaButtons(driver);
     }

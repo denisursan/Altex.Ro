@@ -1,14 +1,18 @@
 package testImplementation;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
 import java.util.concurrent.TimeUnit;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ImplementationLogInFeature {
 
-    public ImplementationLogInFeature(){}
+    public ImplementationLogInFeature() {
+    }
 
     BaseSetUp baseSetUp = new BaseSetUp(7);
 

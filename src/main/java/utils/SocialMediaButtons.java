@@ -21,8 +21,8 @@ public class SocialMediaButtons {
 
     }
 
-   @FindBy(id = "join-form-submit")
-   WebElement AgreeAndJoinBtn;
+   @FindBy(id = "first-name")
+   WebElement firstNameInputField;
 
     @FindBy(xpath = "//*[@id=\"__next\"]/div[4]/div[2]/div[1]/div[4]/div/div[2]/div[2]/a[1]")
     WebElement facebookBtn;
@@ -74,11 +74,9 @@ public class SocialMediaButtons {
             String windowHandle = (String) iter.next();
             // Thread.sleep(3000);
             driver.switchTo().window(windowHandle);
-            if (getAgreeAndJoinBtn().isDisplayed()) {
-                break;
             }
         }
-    }
+
 
     public void openYoutubeInTab() {
         String currentWindowHandle = driver.getWindowHandle();

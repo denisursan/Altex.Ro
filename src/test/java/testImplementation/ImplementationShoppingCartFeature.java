@@ -83,22 +83,15 @@ public class ImplementationShoppingCartFeature {
         baseSetUp.utilsButtons.getDecreaseNumberOfItemsBtnFromCosulMeu().click();
         Thread.sleep(3000);
         List<WebElement> cartItems = baseSetUp.driver.findElements(By.className("Cart-itemContainer"));
-        for (WebElement cartItem:
-             cartItems) {
+        for (WebElement cartItem :
+                cartItems) {
             String cartItemText = cartItem.findElement(By.className("Media-link")).getText();
-            if (cartItemText.contains(productName)){
+            if (cartItemText.contains(productName)) {
                 WebElement quantity = cartItem.findElement(By.className("Cart-column--qty"));
                 String value = quantity.findElement(By.className("u-space-p-5")).getText();
-                assertEquals("2",value);
+                assertEquals("2", value);
             }
         }
-
-
-
-
-
-
-      //  assertEquals(counter, 2);
 
     }
 

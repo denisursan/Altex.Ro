@@ -4,10 +4,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.JavascriptExecutor;
-
-import java.util.Iterator;
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -21,7 +17,6 @@ public class ImplementationSocialMediaBtnsFeature {
     public void userAccessesTheAltexSite() throws InterruptedException {
         baseSetUp.mainPage.openWebsite();
         baseSetUp.mainPage.backToMainPage();
-
 
 
     }
@@ -42,7 +37,7 @@ public class ImplementationSocialMediaBtnsFeature {
 
     @And("Close the page")
     public void closeThePage() {
-        //baseSetUp.driver.quit();
+        baseSetUp.driver.quit();
     }
 
     @When("User clicks on Twitter button")
@@ -72,7 +67,7 @@ public class ImplementationSocialMediaBtnsFeature {
     @Then("The user is able to navigate on LinkedIn page")
     public void theUserIsAbleToNavigateOnLinkedInPage() {
         baseSetUp.socialMediaButtons.openLinkedInTab();
-        baseSetUp.socialMediaButtons.getAgreeAndJoinBtn().click();
+        assertTrue(baseSetUp.socialMediaButtons.getFirstNameInputField().isDisplayed());
 
 
     }
@@ -87,8 +82,7 @@ public class ImplementationSocialMediaBtnsFeature {
     public void theUserIsAbleToNavigateOnYoutubePage() {
         baseSetUp.socialMediaButtons.openYoutubeInTab();
         String title = "ALTEX Romania - YouTube";
-        assertEquals(title,baseSetUp.driver.getTitle());
-
+        assertEquals(title, baseSetUp.driver.getTitle());
 
 
     }
