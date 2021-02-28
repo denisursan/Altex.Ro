@@ -45,6 +45,17 @@ public class MainPage {
     @FindBy(xpath = "//*[@id=\"notice-cookie-block\"]/div/div[2]/button")
     private WebElement acceptaBtn;
 
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[4]/div[2]/div[1]/div[1]/div/div[2]/a[1]")
+    private WebElement despreNoiBtn;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[4]/div[2]/div[1]/div[1]/div/div[2]/a[3]")
+    private WebElement branduriDisponibileBtn;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[4]/div[2]/div[1]/div[1]/div/div[2]/a[2]")
+    private WebElement cariereBtn;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[1]/div/span/a")
+    private WebElement deDouaOriDiferentaBtn;
 
     public void openWebsite() {
         driver.get("https://altex.ro/");
@@ -56,8 +67,7 @@ public class MainPage {
         try {
             WebElement backToSiteBtn = driver.findElement(By.xpath("//*[@id=\"page-promo\"]/header/div/div[1]/div/nav/div/div[1]/a"));
             backToSiteBtn.click();
-        }
-        catch(NoSuchElementException e) {
+        } catch (NoSuchElementException e) {
             e.printStackTrace();
         }
     }

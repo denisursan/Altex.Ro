@@ -48,18 +48,6 @@ public class ProductsPage {
     }
 
 
-    public WebElement findAttributefromElement(List<WebElement> liElements, int numberOfProducts) {
-        for (WebElement element :
-                liElements) {
-            WebElement divelement = element.findElement(By.tagName("div.u-space-p-5"));
-            if (divelement.getAttribute("div").contains("2")){
-                return divelement;
-            }
-
-        }
-       return null;
-    }
-
 
 }
 

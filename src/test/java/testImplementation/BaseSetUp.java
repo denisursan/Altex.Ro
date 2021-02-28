@@ -1,5 +1,7 @@
 package testImplementation;
 
+import JUnitTests.Tests;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,7 +19,7 @@ public class BaseSetUp {
     ProductCategories productCategories;
     SocialMediaButtons socialMediaButtons;
 
-    BaseSetUp(int wait) {
+    public BaseSetUp(int wait) {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/seleniumdriver/chromedriver/chromedriver 2");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
