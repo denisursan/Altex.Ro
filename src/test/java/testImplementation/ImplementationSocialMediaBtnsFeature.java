@@ -10,6 +10,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ImplementationSocialMediaBtnsFeature {
 
@@ -41,7 +42,7 @@ public class ImplementationSocialMediaBtnsFeature {
 
     @And("Close the page")
     public void closeThePage() {
-        baseSetUp.driver.quit();
+        //baseSetUp.driver.quit();
     }
 
     @When("User clicks on Twitter button")
@@ -71,8 +72,7 @@ public class ImplementationSocialMediaBtnsFeature {
     @Then("The user is able to navigate on LinkedIn page")
     public void theUserIsAbleToNavigateOnLinkedInPage() {
         baseSetUp.socialMediaButtons.openLinkedInTab();
-        String title = "ALTEX Romania | LinkedIn";
-        assertEquals(title, baseSetUp.driver.getTitle());
+        baseSetUp.socialMediaButtons.getAgreeAndJoinBtn().click();
 
 
     }

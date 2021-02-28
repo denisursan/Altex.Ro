@@ -2,6 +2,7 @@ package utils;
 
 
 import lombok.Getter;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,6 +21,8 @@ public class SocialMediaButtons {
 
     }
 
+   @FindBy(id = "join-form-submit")
+   WebElement AgreeAndJoinBtn;
 
     @FindBy(xpath = "//*[@id=\"__next\"]/div[4]/div[2]/div[1]/div[4]/div/div[2]/div[2]/a[1]")
     WebElement facebookBtn;
@@ -71,7 +74,7 @@ public class SocialMediaButtons {
             String windowHandle = (String) iter.next();
             // Thread.sleep(3000);
             driver.switchTo().window(windowHandle);
-            if (driver.getTitle().equals("(9) ALTEX Romania: Overview | LinkedIn")) {
+            if (getAgreeAndJoinBtn().isDisplayed()) {
                 break;
             }
         }
