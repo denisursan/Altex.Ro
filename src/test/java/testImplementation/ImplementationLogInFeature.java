@@ -29,8 +29,10 @@ public class ImplementationLogInFeature {
     }
 
     @Then("^The user is able to LogIn$")
-    public void theUserIsAbleToLogIn() {
+    public void theUserIsAbleToLogIn() throws InterruptedException {
+        Thread.sleep(5000);
         assertTrue(baseSetUp.mainPage.getComenzileMeleBtn().isDisplayed());
+        Thread.sleep(5000);
     }
 
     @And("^Closes browser$")
@@ -57,9 +59,10 @@ public class ImplementationLogInFeature {
     }
 
     @And("^The user is able to Log Out$")
-    public void theUserIsAbleToLogOut() {
-
+    public void theUserIsAbleToLogOut() throws InterruptedException {
+        Thread.sleep(6000);
         baseSetUp.mainPage.getLogOutBtn().click();
+
     }
 }
 
