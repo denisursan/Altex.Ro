@@ -90,16 +90,6 @@ public class Tests {
     }
 
     @Test
-
-    public void checkPopUpMessageWhenInsertInvalidEmailAddressFToResetPassword(){
-        logInPage.getContulMeuButton().click();
-        logInPage.getRecuperareParolaBtn().click();
-
-
-
-
-    }
-    @Test
     public void checkIfUserCanAddAProductInTheBasketFromOferteleZileiCategory() throws InterruptedException {
         WebElement firstProductFromOferteleZilei = driver.findElement(By.xpath("//*[@id=\"oferte-zilnice\"]/div/div/div/div/div[1]/a/div/img"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", firstProductFromOferteleZilei);
@@ -141,7 +131,6 @@ public class Tests {
         WebElement huaweiStrongMessage = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[1]/ol/li[2]/strong"));
         assertTrue(huaweiStrongMessage.isDisplayed());
     }
-
 
 }
 
