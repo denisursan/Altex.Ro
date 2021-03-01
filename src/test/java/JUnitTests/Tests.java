@@ -65,18 +65,27 @@ public class Tests {
     }
 
     @Test
-    public void checkThatCariereBtnWorks(){
+    public void checkThatCariereBtnWorks() {
         utils.scrollToElement();
         mainPage.getCariereBtn().click();
-        WebElement locuriDeMuncaAltexMessage= driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[1]/ol/li[2]/strong"));
+        WebElement locuriDeMuncaAltexMessage = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[1]/ol/li[2]/strong"));
         assertTrue(locuriDeMuncaAltexMessage.isDisplayed());
     }
 
     @Test
-    public void checkIfTheUserCanNavigateToDeDouaOriDiferenta(){
+    public void checkIfTheUserCanNavigateToDeDouaOriDiferenta() {
         mainPage.getDeDouaOriDiferentaBtn().click();
-        WebElement douaOriDiferentaTitle= driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[2]/div/div[1]/section/div/div/div/h1"));
+        WebElement douaOriDiferentaTitle = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[2]/div/div[1]/section/div/div/div/h1"));
         assertTrue(douaOriDiferentaTitle.isDisplayed());
+    }
+
+    @Test
+    public void checkIfUserCanNavigateToMainPageBYPressingOnAltexLogo() {
+        productCategories.getTelefoaneTablete().click();
+        productCategories.getTelefoane().click();
+        mainPage.getAltexLogoBtn().click();
+        assertTrue(productCategories.getElectrocasniceMariInProduse().isDisplayed());
+
     }
 
 

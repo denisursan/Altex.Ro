@@ -57,6 +57,9 @@ public class MainPage {
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[1]/div/span/a")
     private WebElement deDouaOriDiferentaBtn;
 
+    @FindBy(className = "Header-logo")
+    private WebElement altexLogoBtn;
+
     public void openWebsite() {
         driver.get("https://altex.ro/");
     }
