@@ -1,15 +1,21 @@
 package utils;
 
 import lombok.Getter;
+
+import org.openqa.selenium.*;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 @Getter
 public class MainPage {
-
     WebDriver driver;
 
     public MainPage(WebDriver driver) {
@@ -42,6 +48,7 @@ public class MainPage {
     @FindBy(xpath = "//*[@id=\"notice-cookie-block\"]/div/div[2]/button")
     private WebElement acceptaBtn;
 
+<<<<<<< HEAD
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/form/div[3]/div/a/div/div/div")
     private WebElement inregistrareBtn;
 
@@ -49,14 +56,35 @@ public class MainPage {
     private WebElement contulMeuButton;
 
 
+=======
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[4]/div[2]/div[1]/div[1]/div/div[2]/a[1]")
+    private WebElement despreNoiBtn;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[4]/div[2]/div[1]/div[1]/div/div[2]/a[3]")
+    private WebElement branduriDisponibileBtn;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[4]/div[2]/div[1]/div[1]/div/div[2]/a[2]")
+    private WebElement cariereBtn;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[1]/div/span/a")
+    private WebElement deDouaOriDiferentaBtn;
+
+    @FindBy(className = "Header-logo")
+    private WebElement altexLogoBtn;
+>>>>>>> a5794ded7a7742b2044fe6ed62d6db804cfef05e
 
     public void openWebsite() {
         driver.get("https://altex.ro/");
     }
 
     public void backToMainPage() {
-        if (inapoiLaSiteBtn != null) {
-            inapoiLaSiteBtn.click();
+
+
+        try {
+            WebElement backToSiteBtn = driver.findElement(By.xpath("//*[@id=\"page-promo\"]/header/div/div[1]/div/nav/div/div[1]/a"));
+            backToSiteBtn.click();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
         }
     }
 

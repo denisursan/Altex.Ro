@@ -1,14 +1,18 @@
 package testImplementation;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
 import java.util.concurrent.TimeUnit;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ImplementationLogInFeature {
 
-    public ImplementationLogInFeature(){}
+    public ImplementationLogInFeature() {
+    }
 
     BaseSetUp baseSetUp = new BaseSetUp(7);
 
@@ -25,8 +29,10 @@ public class ImplementationLogInFeature {
     }
 
     @Then("^The user is able to LogIn$")
-    public void theUserIsAbleToLogIn() {
+    public void theUserIsAbleToLogIn() throws InterruptedException {
+        Thread.sleep(10000);
         assertTrue(baseSetUp.mainPage.getComenzileMeleBtn().isDisplayed());
+        Thread.sleep(10000);
     }
 
     @And("^Closes browser$")
@@ -53,9 +59,34 @@ public class ImplementationLogInFeature {
     }
 
     @And("^The user is able to Log Out$")
-    public void theUserIsAbleToLogOut() {
-
+    public void theUserIsAbleToLogOut() throws InterruptedException {
+        Thread.sleep(9000);
         baseSetUp.mainPage.getLogOutBtn().click();
+
+    }
+
+    @And("User clicks on back button")
+    public void userClicksOnBackButton() {
+        baseSetUp.driver.navigate().back();
+    }
+
+    @And("The user is not able to LogIn back")
+    public void theUserIsNotAbleToLogInBack() {
+        baseSetUp.logInPage.getContulMeuButton().click();
+        assertTrue(baseSetUp.logInPage.getAutentificareButton().isDisplayed());
+
+    }
+
+    @And("User clicks on back button")
+    public void userClicksOnBackButton() {
+        baseSetUp.driver.navigate().back();
+    }
+
+    @And("The user is not able to LogIn back")
+    public void theUserIsNotAbleToLogInBack() {
+        baseSetUp.logInPage.getContulMeuButton().click();
+        assertTrue(baseSetUp.logInPage.getAutentificareButton().isDisplayed());
+
     }
 
     @When("User clicks Contul meu btn")
