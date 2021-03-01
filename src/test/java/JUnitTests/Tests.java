@@ -3,6 +3,7 @@ package JUnitTests;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -89,6 +90,7 @@ public class Tests {
     }
 
     @Test
+
     public void checkPopUpMessageWhenInsertInvalidEmailAddressFToResetPassword(){
         logInPage.getContulMeuButton().click();
         logInPage.getRecuperareParolaBtn().click();
@@ -96,6 +98,48 @@ public class Tests {
 
 
 
+    }
+    @Test
+    public void checkIfUserCanAddAProductInTheBasketFromOferteleZileiCategory() throws InterruptedException {
+        WebElement firstProductFromOferteleZilei = driver.findElement(By.xpath("//*[@id=\"oferte-zilnice\"]/div/div/div/div/div[1]/a/div/img"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", firstProductFromOferteleZilei);
+        Thread.sleep(2500);
+        firstProductFromOferteleZilei.click();
+        productsPage.getAdaugaInCosBtnFromProductPage().click();
+        WebElement productInCart = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[2]/div[1]/ul/li/div/div/div[1]/ul/li/div[2]/h2/a"));
+        Thread.sleep(2000);
+        assertTrue(productInCart.isDisplayed());
+    }
+
+    @Test
+    public void checkBranduriBtnFromMainMenu() {
+        mainPage.getBranduriBtnFromMainMenu().click();
+        WebElement branduriDisponibileMessage = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[2]/h1"));
+        assertTrue(branduriDisponibileMessage.isDisplayed());
+    }
+
+    @Test
+    public void checkFinantareBtnFromMainMenu() {
+        mainPage.getFinantareBtnFromMainMenu().click();
+        mainPage.getCarduriDeCreditBtnFromMainMenu().click();
+        WebElement sistemDeRAteCuCarduriDeCreditMessage = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[1]/ol/li[2]/strong"));
+        assertTrue(sistemDeRAteCuCarduriDeCreditMessage.isDisplayed());
+    }
+
+    @Test
+    public void checkLegoAddFromMainPage() {
+        utils.scrollToElement();
+        mainPage.getLegoAddBtn().click();
+        WebElement LegoStrongMessage = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[1]/ol/li[2]/strong"));
+        assertTrue(LegoStrongMessage.isDisplayed());
+    }
+
+    @Test
+    public void checkHuaweiAddFromMainPage() {
+        utils.scrollToElement();
+        mainPage.getHuaweiAddBtn().click();
+        WebElement huaweiStrongMessage = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[1]/ol/li[2]/strong"));
+        assertTrue(huaweiStrongMessage.isDisplayed());
     }
 
 

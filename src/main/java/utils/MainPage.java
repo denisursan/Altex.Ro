@@ -48,7 +48,6 @@ public class MainPage {
     @FindBy(xpath = "//*[@id=\"notice-cookie-block\"]/div/div[2]/button")
     private WebElement acceptaBtn;
 
-<<<<<<< HEAD
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/form/div[3]/div/a/div/div/div")
     private WebElement inregistrareBtn;
 
@@ -56,7 +55,6 @@ public class MainPage {
     private WebElement contulMeuButton;
 
 
-=======
     @FindBy(xpath = "//*[@id=\"__next\"]/div[4]/div[2]/div[1]/div[1]/div/div[2]/a[1]")
     private WebElement despreNoiBtn;
 
@@ -71,7 +69,23 @@ public class MainPage {
 
     @FindBy(className = "Header-logo")
     private WebElement altexLogoBtn;
->>>>>>> a5794ded7a7742b2044fe6ed62d6db804cfef05e
+
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[2]/div[2]/ul/li[3]/a")
+     private WebElement branduriBtnFromMainMenu;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[2]/div[2]/ul/li[4]/a")
+    private WebElement finantareBtnFromMainMenu;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[2]/div[2]/ul/li[4]/ul/li[3]/a")
+    private WebElement carduriDeCreditBtnFromMainMenu;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[3]/main/div[4]/div[3]/a[1]")
+    private WebElement legoAddBtn;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[3]/main/div[4]/div[3]/a[2]/img")
+    private WebElement huaweiAddBtn;
+
 
     public void openWebsite() {
         driver.get("https://altex.ro/");

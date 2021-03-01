@@ -31,12 +31,14 @@ public class ProductsPage {
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[4]/form/div/div[1]/div[3]/div[1]/div[1]/div/ul/li[1]")
     private WebElement anvelopaCategorySuggested;
 
-    @FindBy (xpath = "//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[4]/form/div/div[1]/div[3]/div[1]/div[2]/ul/li[1]/div[2]")
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[4]/form/div/div[1]/div[3]/div[1]/div[2]/ul/li[1]/div[2]")
     public WebElement firstElementFromSearchFieldSuggestedList;
 
     @FindBy(xpath = "/html/body/div[2]/div[2]/div[3]/a/div/div/div")
     private WebElement assertProductDisplayedInTheShoppingCart;
 
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[3]/main/div/div[2]/div[1]/div[2]/div[2]/div/div/div[4]/div/div[1]/div[1]/div/div/button/div/div[2]/div")
+    private WebElement adaugaInCosBtnFromProductPage;
 
     public boolean findCategoryByText(List<WebElement> liElements, String text) {
         for (WebElement element : liElements) {
@@ -46,7 +48,6 @@ public class ProductsPage {
         }
         return false;
     }
-
 
 
 }
