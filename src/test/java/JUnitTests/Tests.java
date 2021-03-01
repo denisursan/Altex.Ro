@@ -88,6 +88,16 @@ public class Tests {
 
     }
 
+    @Test
+    public void checkPopUpMessageWhenInsertInvalidEmailAddressFToResetPassword(){
+        logInPage.getContulMeuButton().click();
+        logInPage.getRecuperareParolaBtn().click();
+
+
+
+
+    }
+
 
 }
 
