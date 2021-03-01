@@ -65,17 +65,6 @@ public class ImplementationLogInFeature {
 
     }
 
-    @And("User clicks on back button")
-    public void userClicksOnBackButton() {
-        baseSetUp.driver.navigate().back();
-    }
-
-    @And("The user is not able to LogIn back")
-    public void theUserIsNotAbleToLogInBack() {
-        baseSetUp.logInPage.getContulMeuButton().click();
-        assertTrue(baseSetUp.logInPage.getAutentificareButton().isDisplayed());
-
-    }
 
     @And("User clicks on back button")
     public void userClicksOnBackButton() {
