@@ -78,6 +78,14 @@ public class Tests {
         WebElement douaOriDiferentaTitle= driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[2]/div/div[1]/section/div/div/div/h1"));
         assertTrue(douaOriDiferentaTitle.isDisplayed());
     }
+    @Test
+    public void checkIfUserCanNavigateToMainPageBYPressingOnAltexLogo() {
+        productCategories.getTelefoaneTablete().click();
+        productCategories.getTelefoane().click();
+        mainPage.getAltexLogoBtn().click();
+        assertTrue(productCategories.getElectrocasniceMariInProduse().isDisplayed());
+
+    }
 
 
 }
