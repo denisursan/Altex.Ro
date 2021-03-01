@@ -60,6 +60,22 @@ public class MainPage {
     @FindBy(className = "Header-logo")
     private WebElement altexLogoBtn;
 
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[2]/div[2]/ul/li[3]/a")
+     private WebElement branduriBtnFromMainMenu;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[2]/div[2]/ul/li[4]/a")
+    private WebElement finantareBtnFromMainMenu;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[2]/div[2]/ul/li[4]/ul/li[3]/a")
+    private WebElement carduriDeCreditBtnFromMainMenu;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[3]/main/div[4]/div[3]/a[1]")
+    private WebElement legoAddBtn;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[3]/main/div[4]/div[3]/a[2]/img")
+    private WebElement huaweiAddBtn;
+
+
     public void openWebsite() {
         driver.get("https://altex.ro/");
     }
