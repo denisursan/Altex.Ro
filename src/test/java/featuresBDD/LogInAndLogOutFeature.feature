@@ -36,11 +36,3 @@ Feature: Test LogIn feature
     And The user is not able to LogIn back
     And Closes browser
 
-  Scenario: Test if user is able to log in by pressing back button after logOut
-    Given User accesses Altex website
-    When I enter valid username and valid password
-    Then The user is able to LogIn
-    And The user is able to Log Out
-    And User clicks on back button
-    And The user is not able to LogIn back
-    And Closes browser
