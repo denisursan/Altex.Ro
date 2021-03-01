@@ -53,11 +53,21 @@ public class UtilsButtons {
     @FindBy(xpath = "//*[@id=\"checkout\"]/div/section/div/h2")
     private WebElement cosTitleFromBasket;
 
+<<<<<<< HEAD
+
+
+    public int getNumberOfItemsFromTheBasket(){
+        return Integer.parseInt(numberOfElementsFromBasket.getAttribute("class"));
+
+    }
+
+=======
 //    public int getNumberOfItemsFromTheBasket(){
 //        return Integer.parseInt(numberOfElementsFromBasket.getAttribute("u-space-p-5"));
 //
 //    }
 //
+>>>>>>> a5794ded7a7742b2044fe6ed62d6db804cfef05e
 
 
 }

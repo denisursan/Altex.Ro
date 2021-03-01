@@ -27,6 +27,15 @@ Feature: Test LogIn feature
     And Closes browser
 
 
+  Scenario: Test LogIn feature from Am deja cont section
+    Given User accesses Altex website
+    When User clicks Contul meu btn
+    And User clicks on Inregistrare btn
+    Then User enters valid username and valid password
+    And User is able to Log In
+    And Closes browser
+
+
   Scenario: Test if user is able to log in by pressing back button after logOut
     Given User accesses Altex website
     When I enter valid username and valid password
