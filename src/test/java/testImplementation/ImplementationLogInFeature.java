@@ -6,8 +6,7 @@ import io.cucumber.java.en.When;
 import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 public class ImplementationLogInFeature {
-    public ImplementationLogInFeature() {
-    }
+
     BaseSetUp baseSetUp = new BaseSetUp(7);
     @Given("^User accesses Altex website$")
     public void userAccessesAltexWebsite() {
