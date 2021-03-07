@@ -7,14 +7,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
-import testImplementation.BaseSetUp;
 import utils.*;
 
-import java.util.List;
-import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -50,7 +44,7 @@ public class Tests {
 
     @Test
     public void checkDespreNoiBtn() {
-        utils.scrollToElement();
+        utils.scrollToBottomOfThePage();
         mainPage.getDespreNoiBtn().click();
         WebElement altexBrandRomanesc = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[1]/ol/li[2]/strong"));
         assertTrue(altexBrandRomanesc.isDisplayed());
@@ -59,7 +53,7 @@ public class Tests {
 
     @Test
     public void checkBranduriDisponibileBtnWorks() {
-        utils.scrollToElement();
+        utils.scrollToBottomOfThePage();
         mainPage.getBranduriDisponibileBtn().click();
         WebElement branduriDisponibileMessage = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[2]/h1"));
         assertTrue(branduriDisponibileMessage.isDisplayed());
@@ -67,7 +61,7 @@ public class Tests {
 
     @Test
     public void checkThatCariereBtnWorks() {
-        utils.scrollToElement();
+        utils.scrollToBottomOfThePage();
         mainPage.getCariereBtn().click();
         WebElement locuriDeMuncaAltexMessage = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[1]/ol/li[2]/strong"));
         assertTrue(locuriDeMuncaAltexMessage.isDisplayed());
@@ -118,7 +112,7 @@ public class Tests {
 
     @Test
     public void checkLegoAddFromMainPage() {
-        utils.scrollToElement();
+        utils.scrollToBottomOfThePage();
         mainPage.getLegoAddBtn().click();
         WebElement LegoStrongMessage = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[1]/ol/li[2]/strong"));
         assertTrue(LegoStrongMessage.isDisplayed());
@@ -126,7 +120,7 @@ public class Tests {
 
     @Test
     public void checkHuaweiAddFromMainPage() {
-        utils.scrollToElement();
+        utils.scrollToBottomOfThePage();
         mainPage.getHuaweiAddBtn().click();
         WebElement huaweiStrongMessage = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[1]/ol/li[2]/strong"));
         assertTrue(huaweiStrongMessage.isDisplayed());

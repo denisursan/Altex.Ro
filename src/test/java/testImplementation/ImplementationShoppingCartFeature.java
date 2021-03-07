@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lombok.Getter;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
@@ -17,11 +18,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class ImplementationShoppingCartFeature {
     BaseSetUp baseSetUp = new BaseSetUp(5);
     String productName;
+    JavascriptExecutor js = (JavascriptExecutor) baseSetUp.driver;
 
     @Given("User accesses the Altex site")
     public void userAccessesTheAltexSite() {
         baseSetUp.mainPage.openWebsite();
         baseSetUp.mainPage.backToMainPage();
+        baseSetUp.mainPage.getAcceptaBtn().click();
 
     }
 
@@ -40,15 +43,17 @@ public class ImplementationShoppingCartFeature {
 
     @And("Clicks on a product from the by clicking on Adauga in cos btn")
     public void clicksOnAdaugaInCosBtn() {
+        js.executeScript("arguments[0].scrollIntoView(true);", baseSetUp.utilsButtons.getAdaugaInCosbtn());
         baseSetUp.utilsButtons.getAdaugaInCosbtn().click();
     }
 
     @Then("User clicks on Vezi cosul btn")
     public void userClickOnVeziCosulBtn() throws InterruptedException {
-        Thread.sleep(3000);
-        baseSetUp.utilsButtons.getAcceptaConditiiBtn().click();
-        baseSetUp.utils.scrollToElement();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
+        // baseSetUp.utilsButtons.getAcceptaConditiiBtn().click();
+        baseSetUp.utils.scrollToBottomOfThePage();
+        // js.executeScript("arguments[0].scrollIntoView(true);", baseSetUp.utilsButtons.getVeziCosulbtn());
+        Thread.sleep(2000);
         baseSetUp.utilsButtons.getVeziCosulbtn().click();
         baseSetUp.productsPage.getAssertProductDisplayedInTheShoppingCart().isDisplayed();
 
@@ -60,9 +65,13 @@ public class ImplementationShoppingCartFeature {
     }
 
     @And("Clicks on Inapoi btn")
-    public void clicksOnInapoiBtn() {
-        baseSetUp.utils.scrollToElement();
-        baseSetUp.utilsButtons.getAcceptaConditiiBtn().click();
+    public void clicksOnInapoiBtn() throws InterruptedException {
+
+
+        Thread.sleep(2000);
+        // baseSetUp.utilsButtons.getAcceptaConditiiBtn().click();
+        js.executeScript("arguments[0].scrollIntoView(true);", baseSetUp.utilsButtons.getInapoiBtnFromBasket());
+        Thread.sleep(2000);
         baseSetUp.utilsButtons.getInapoiBtnFromBasket().click();
     }
 
@@ -142,11 +151,14 @@ public class ImplementationShoppingCartFeature {
         baseSetUp.productCategories.getTelefoaneTablete().click();
         baseSetUp.productCategories.getTelefoane().click();
         baseSetUp.productCategories.getAdaugaInCosTelefon1().click();
-        baseSetUp.mainPage.acceptaButton();
+        // baseSetUp.mainPage.acceptaButton();
+        js.executeScript("arguments[0].scrollIntoView(true);", baseSetUp.utilsButtons.getInapoiBtnFromBasket());
         baseSetUp.utilsButtons.getInapoiBtnFromBasket().click();
         baseSetUp.productCategories.getAdaugaInCosTelefon2().click();
+        js.executeScript("arguments[0].scrollIntoView(true);", baseSetUp.utilsButtons.getInapoiBtnFromBasket());
         baseSetUp.utilsButtons.getInapoiBtnFromBasket().click();
         baseSetUp.productCategories.getAdaugaInCosTelefon3().click();
+        js.executeScript("arguments[0].scrollIntoView(true);", baseSetUp.utilsButtons.getInapoiBtnFromBasket());
         baseSetUp.utilsButtons.getInapoiBtnFromBasket().click();
 
     }

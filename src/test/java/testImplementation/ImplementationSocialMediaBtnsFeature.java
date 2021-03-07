@@ -23,7 +23,7 @@ public class ImplementationSocialMediaBtnsFeature {
 
     @When("User clicks on Facebook button")
     public void userClicksOnFacebookButton() {
-        baseSetUp.utils.scrollToElement();
+        baseSetUp.utils.scrollToBottomOfThePage();
         baseSetUp.socialMediaButtons.getFacebookBtn().click();
     }
 
@@ -42,7 +42,7 @@ public class ImplementationSocialMediaBtnsFeature {
 
     @When("User clicks on Twitter button")
     public void userClicksOnTwitterButton() {
-        baseSetUp.utils.scrollToElement();
+        baseSetUp.utils.scrollToBottomOfThePage();
         baseSetUp.socialMediaButtons.getTwitterBtn().click();
     }
 
@@ -59,7 +59,7 @@ public class ImplementationSocialMediaBtnsFeature {
 
     @When("User clicks on LinkedIn button")
     public void userClicksOnLinkedInButton() {
-        baseSetUp.utils.scrollToElement();
+        baseSetUp.utils.scrollToBottomOfThePage();
         baseSetUp.socialMediaButtons.getLinkedInBtn().click();
 
     }
@@ -74,7 +74,7 @@ public class ImplementationSocialMediaBtnsFeature {
 
     @When("User clicks on Youtube button")
     public void userClicksOnYoutubeButton() {
-        baseSetUp.utils.scrollToElement();
+        baseSetUp.utils.scrollToBottomOfThePage();
         baseSetUp.socialMediaButtons.getYoutubeBtn().click();
     }
 
