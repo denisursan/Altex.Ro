@@ -23,10 +23,16 @@ Feature: Test CRUD methods with API testing
     When I set a Put Http request
     And I receive valid HTTP code
 
+
   Scenario: Delete the created pet
     Given I set DElETE pet api endpoint
     When I send DELETE HTTP request
     Then I receive valid HTTP Response
+
+  Scenario: Find pets by available status
+    Given I send a new Http get request
+    When I receive status code
+    And I receive valid code response
 
 
 
