@@ -17,12 +17,14 @@ public class OrdersPetStoreImplementation {
 
     private String baseUrl = "https://petstore.swagger.io/v2";
     private String path = "/store/order";
+    private String pathInventory = "/store/inventory";
     private int orderId = 5;
     Order order;
     Response orderCreatedResponse;
     Response getResponseforASpecificGetOrderRequest;
     Order orderResponse;
     Response deleteOrderResponse;
+    Response responseInventory;
 
 
     @Given("I want to create a new order with in the database")
@@ -83,14 +85,14 @@ public class OrdersPetStoreImplementation {
 
     @When("I set a Delete Http request for the created order")
     public void iSetADeleteHttpRequestForTheCreatedOrder() {
-         deleteOrderResponse = when().delete(baseUrl + path +"/" + orderId);
+        deleteOrderResponse = when().delete(baseUrl + path + "/" + orderId);
 
 
     }
 
     @Then("I receive delete validation for the order as an HTTP code")
     public void iReceiveDeleteValidationForTheOrderAsAnHTTPCode() {
-        assertEquals(deleteOrderResponse.getStatusCode(),200);
+        assertEquals(deleteOrderResponse.getStatusCode(), 200);
     }
 
 
@@ -107,9 +109,27 @@ public class OrdersPetStoreImplementation {
 
     @Then("^The response code  will be (.*)$")
     public void theResponseCodeWillBeCode(int code) {
-          DeletedPetResponse orderResponse = getResponseforASpecificGetOrderRequest.getBody().as(DeletedPetResponse.class);
+        DeletedPetResponse orderResponse = getResponseforASpecificGetOrderRequest.getBody().as(DeletedPetResponse.class);
         assertEquals(getResponseforASpecificGetOrderRequest.getStatusCode(), code);
 
+
+    }
+
+    @Given("I want to get the inventory")
+    public void iWantToGetTheInventory() {
+
+        given().contentType(ContentType.JSON);
+    }
+
+    @When("I perform Get operation")
+    public void iPerformGetOperation() {
+        responseInventory = when().get(baseUrl + pathInventory).then().log().all().extract().response();
+
+    }
+
+    @And("I receive a valid response code")
+    public void iReceiveAValidResponseCode() {
+        assertEquals(responseInventory.statusCode(), 200);
 
     }
 }

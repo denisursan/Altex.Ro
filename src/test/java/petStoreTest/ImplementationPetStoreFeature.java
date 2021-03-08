@@ -19,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ImplementationPetStoreFeature {
     private int petId = 23;
+    private int pet1Id = 26;
     private String baseUrl = "https://petstore.swagger.io/v2";
     private String path = "/pet";
     private String queryParam = "/findByStatus?status=available";
@@ -26,6 +27,7 @@ public class ImplementationPetStoreFeature {
     Pet petresponse;
     String getAllPets = baseUrl + path + queryParam;
     Pet pet;
+    Pet pet1;
     Response getSpecificPetResponse;
     Pet updatedPet;
     Response responseUpdatedPet;
@@ -33,6 +35,10 @@ public class ImplementationPetStoreFeature {
     Response findBYStatusResponse;
     Response getresponse;
     Response statusGetResponse;
+    Response anotherPetCreated;
+    Response getPet1SpecificResponse;
+    Response deletedResponsepet1;
+    Pet updatedpet1;
 
     @Given("I Set Get pet api endpoint")
     public void iSetGetPetApiEndpoint() {
@@ -174,9 +180,104 @@ public class ImplementationPetStoreFeature {
     }
 
 
-    @And("I receive valid code response")
+    @And("I receive valid status")
     public void iReceiveValidCodeResponse() {
-        assertEquals(statusGetResponse.getStatusCode(), 200);
+        assertEquals(statusGetResponse.statusCode(), 200);
+    }
+
+    @Given("I want to create another  pet")
+    public void iWantToCreateAnotherPet() {
+        pet1 = new Pet();
+        pet1.setPetID(26);
+        pet1.setPetCategory(223, "CaneCorso");
+        pet1.setPetName("Max");
+        pet1.setPetPhotosURL(null);
+        pet1.setPetTags(256, "to be adopted");
+        pet1.setPetStatus("not available");
+
+    }
+
+    @When("I create the new pet resource")
+    public void iCreateTheNewPetResource() {
+      anotherPetCreated  = given().when().contentType(ContentType.JSON).body(pet1).post(baseUrl + path).then().log().all().extract().response();
+
+
+    }
+
+    @Then("the pet will be created in the database")
+    public void thePetWillBeCreatedInTheDatabase() {
+        Pet petResponse = anotherPetCreated.getBody().as(Pet.class);
+        assertEquals(anotherPetCreated.getStatusCode(), 200);
+        assertEquals(petResponse.getPetStatus(), "not available");
+        assertEquals(petResponse.getPetName(), "Max");
+    }
+
+
+    @Given("I set the request HEADER for revious pet created")
+    public void iSetTheRequestHEADERForReviousPetCreated() {
+
+        given().contentType(ContentType.JSON);
+    }
+
+    @When("I send Get request for specific pet")
+    public void iSendGetRequestForSpecificPet() {
+        getPet1SpecificResponse = given().contentType(ContentType.JSON).when().get(baseUrl + path + "/" + pet1Id).
+                then().statusCode(200).log().all().extract().response();
+
+    }
+
+    @Then("^I can see a valid HTTP code (.*) Response$")
+    public void iCanSeeAValidHTTPCodeCodeResponse(int code) {
+        Pet specificPetResponse = getPet1SpecificResponse.getBody().as(Pet.class);
+        assertEquals(getPet1SpecificResponse.getStatusCode(), code);
+
+
+    }
+
+    @And("^The pet name will be (.*)$")
+    public void thePetNameWillBeName(String name) {
+        Pet specificPetResponse = getPet1SpecificResponse.getBody().as(Pet.class);
+        assertEquals(specificPetResponse.getPetName(),name);
+    }
+
+    @Given("I set the  DElETE pet api endpoint")
+    public void iSetTheDElETEPet1ApiEndpoint() {
+        deletedResponsepet1 = given().when().delete(baseUrl + path + "/" + pet1Id).then().extract().response();
+
+    }
+
+    @When("I send DELETE  request")
+    public void iSendDELETERequest() {
+        deletedResponsepet1.getBody().as(DeletedPetResponse.class);
+    }
+
+    @Then("^I receive valid code (.*)$")
+    public void iReceiveValidCodeCode(int code) {
+        assertEquals(deletedResponsepet1.getStatusCode(), code);
+    }
+
+    @Given("I set a new name and a new Id for category section")
+    public void iSetANewNameAndANewIdForCategorySection() {
+        updatedpet1 = new Pet();
+        updatedpet1.setPetID(pet1Id);
+        updatedpet1.setPetCategory(10, "Cat");
+        updatedpet1.setPetName("Leila");
+        updatedpet1.setPetPhotosURL(null);
+        updatedpet1.setPetStatus("not available");
+
+    }
+
+    @When("I set a Put Http request for the previous pet created")
+    public void iSetAPutHttpRequestForThePreviousPetCreated() {
+
+        responseUpdatedPet = given().when().contentType(ContentType.JSON).body(updatedpet1).put(baseUrl + path).then().log().all().extract().response();
+
+    }
+
+    @And("I receive the code request")
+    public void iReceiveTheCodeCode() {
+         responseUpdatedPet.getBody().as(Pet.class);
+        assertEquals(responseUpdatedPet.statusCode(),200);
     }
 }
 

@@ -16,10 +16,15 @@ Feature: CRUD feature for order database
     When I set a Delete Http request for the created order
     Then I receive delete validation for the order as an HTTP code
 
-    Scenario Outline: Check if order was deleted
-      Given I want to get the deleted order
-      When I perform Get operation for specific order
-      Then The response code  will be <code>
-      Examples:
-        | code |
-        |404   |
+  Scenario Outline: Check if order was deleted
+    Given I want to get the deleted order
+    When I perform Get operation for specific order
+    Then The response code  will be <code>
+    Examples:
+      | code |
+      | 404  |
+
+  Scenario: Check inventory status
+    Given I want to get the inventory
+    When I perform Get operation
+    And I receive a valid response code
