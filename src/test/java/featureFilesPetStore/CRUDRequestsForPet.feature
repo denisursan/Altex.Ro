@@ -1,27 +1,39 @@
 Feature: Test CRUD methods with API testing
 
-  Scenario: Verify collection of pets in the post
+  Scenario Outline: Verify collection of pets in the post
     Given I Set Get pet api endpoint
     When I perform Get operation for pets
-    Then I receive valid HTTP response code
+    Then I receive valid HTTP response code <code>
+    Examples:
+      | code |
+      | 200  |
 
 
-  Scenario: Create a new pet
-    Given I want to create a new pet with name and status
+  Scenario Outline: Create a new pet
+    Given I want to create a new pet with name <name> and status <status>
     When I create the pet resource
-    Then the pet will be created in the database with the name
+    Then the pet will be created in the database with the name <name>
+    Examples:
+      | name  | status    |
+      | Boris | available |
 
 
-  Scenario: Get the created pet
+  Scenario Outline: Get the created pet
     Given I set the request HEADER
     When I send Get HTTP request
-    Then I receive valid HTTP code response
-    And I receive the pet name
+    Then I receive valid HTTP code <code> response
+    And I receive the pet name <name>
+    Examples:
+      | code | name  |
+      | 200  | Boris |
 
-  Scenario: Update the created pet
-    Given I set a new name and a new CategoryId for the created pet
+  Scenario Outline: Update the created pet
+    Given I set a new name <name> and a new CategoryId <categoryId> for the created pet
     When I set a Put Http request
-    And I receive valid HTTP code
+    And I receive a valid HTTP code <code>
+    Examples:
+      | name | categoryId | code |
+      | Rexi | 20         | 200  |
 
   Scenario: Create another  pet
     Given I want to create another  pet
@@ -44,7 +56,7 @@ Feature: Test CRUD methods with API testing
 
 
   Scenario: Delete the first pet created
-    Given I set DElETE pet api endpoint
+    Given I set DELETE pet api endpoint
     When I send DELETE HTTP request
     Then I receive valid HTTP Response
 

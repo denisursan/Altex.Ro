@@ -55,22 +55,22 @@ public class ImplementationPetStoreFeature {
     }
 
 
-    @Then("^I receive valid HTTP response code$")
-    public void iReceiveValidHTTPResponseCode() {
+    @Then("^I receive valid HTTP response code (.*)$")
+    public void iReceiveValidHTTPResponseCode(int code) {
         assertEquals(getresponse.getStatusCode(), 200);
 
 
     }
 
-    @Given("I want to create a new pet with name and status")
-    public void iWantToCreateANewPetWithNameAndStatus() {
+    @Given("^I want to create a new pet with name (.*) and status (.*)$")
+    public void iWantToCreateANewPetWithNameAndStatus(String name, String status) {
         pet = new Pet();
         pet.setPetID(23);
         pet.setPetCategory(223, "CaneCorso");
-        pet.setPetName("Boris");
+        pet.setPetName(name);
         pet.setPetPhotosURL(null);
         pet.setPetTags(256, "to be adopted");
-        pet.setPetStatus("available");
+        pet.setPetStatus(status);
 
 
     }
@@ -83,12 +83,12 @@ public class ImplementationPetStoreFeature {
     }
 
 
-    @Then("the pet will be created in the database with the name")
-    public void thePetWillBeCreatedInTheDatabaseWithTheName() {
+    @Then("^the pet will be created in the database with the name (.*)$")
+    public void thePetWillBeCreatedInTheDatabaseWithTheName(String nameCreated) {
         Pet petResponse = response.getBody().as(Pet.class);
         assertEquals(response.getStatusCode(), 200);
         assertEquals(petResponse.getPetStatus(), "available");
-        assertEquals(petResponse.getPetName(), "Boris");
+        assertEquals(petResponse.getPetName(), nameCreated);
     }
 
 
@@ -104,27 +104,27 @@ public class ImplementationPetStoreFeature {
 
     }
 
-    @Then("I receive valid HTTP code response")
-    public void iReceiveValidHTTPCodeResponse() {
+    @Then("^I receive valid HTTP code (.*) response$")
+    public void iReceiveValidHTTPCodeResponse(int code ) {
         Pet specificPetResponse = getSpecificPetResponse.getBody().as(Pet.class);
-        assertEquals(getSpecificPetResponse.getStatusCode(), 200);
+        assertEquals(getSpecificPetResponse.getStatusCode(), code);
 
 
     }
 
-    @And("I receive the pet name")
-    public void iReceiveThePetName() {
+    @And("^I receive the pet name (.*)$")
+    public void iReceiveThePetName(String name) {
         Pet specificPetResponse = getSpecificPetResponse.getBody().as(Pet.class);
-        assertEquals(specificPetResponse.getPetName(), "Boris");
+        assertEquals(specificPetResponse.getPetName(), name);
 
     }
 
-    @Given("I set a new name and a new CategoryId for the created pet")
-    public void iSetANewNameAndANewCategoryIdForTheCreatedPet() {
+    @Given("I set a new name (.*) and a new CategoryId (.*) for the created pet$")
+    public void iSetANewNameAndANewCategoryIdForTheCreatedPet(String name, int categoryId) {
         updatedPet = new Pet();
         updatedPet.setPetID(petId);
-        updatedPet.setPetCategory(20, "CaneCorso");
-        updatedPet.setPetName("Rexi");
+        updatedPet.setPetCategory(categoryId, "CaneCorso");
+        updatedPet.setPetName(name);
         updatedPet.setPetPhotosURL(null);
         updatedPet.setPetStatus("available");
 
@@ -137,16 +137,16 @@ public class ImplementationPetStoreFeature {
 
     }
 
-    @And("I receive valid HTTP code")
-    public void iReceiveValidHTTPCode() {
+    @And("^I receive a valid HTTP code (.*)$")
+    public void iReceiveValidHTTPCodeR(int code) {
         Pet petUpdatedResponse = responseUpdatedPet.getBody().as(Pet.class);
-        assertEquals(responseUpdatedPet.getStatusCode(), 200);
+        assertEquals(responseUpdatedPet.getStatusCode(), code);
         assertEquals(petUpdatedResponse.getPetName(), "Rexi");
 
 
     }
 
-    @Given("I set DElETE pet api endpoint")
+    @Given("I set DELETE pet api endpoint")
     public void iSetDElETEPetApiEndpoint() {
         deletedResponse = given().when().delete(baseUrl + path + "/" + petId).then().extract().response();
 

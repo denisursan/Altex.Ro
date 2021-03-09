@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class ImplementationSocialMediaBtnsFeature {
 
     BaseSetUp baseSetUp = new BaseSetUp(5);
-    WebDriverWait wait = new WebDriverWait(baseSetUp.driver,5);
+    WebDriverWait wait = new WebDriverWait(baseSetUp.driver, 5);
 
 
     @Given("Open website")

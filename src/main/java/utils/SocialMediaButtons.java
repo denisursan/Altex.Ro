@@ -21,8 +21,8 @@ public class SocialMediaButtons {
 
     }
 
-   @FindBy(id = "first-name")
-   WebElement firstNameInputField;
+    @FindBy(id = "first-name")
+    WebElement firstNameInputField;
 
     @FindBy(xpath = "//*[@id=\"__next\"]/div[4]/div[2]/div[1]/div[4]/div/div[2]/div[2]/a[1]")
     WebElement facebookBtn;
@@ -78,8 +78,8 @@ public class SocialMediaButtons {
                 break;
 
             }
-            }
         }
+    }
 
 
     public void openYoutubeInTab() {

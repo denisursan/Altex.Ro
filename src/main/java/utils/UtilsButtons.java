@@ -54,14 +54,10 @@ public class UtilsButtons {
     private WebElement cosTitleFromBasket;
 
 
-
-
 //    public int getNumberOfItemsFromTheBasket(){
 //        return Integer.parseInt(numberOfElementsFromBasket.getAttribute("class"));
 //
 //    }
-
-
 
 
 }

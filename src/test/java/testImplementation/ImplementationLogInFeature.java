@@ -23,7 +23,7 @@ public class ImplementationLogInFeature {
 
     @When("^I enter valid email (.*) and valid password (.*)$")
     public void iEnterValidUsernameAndValidPassword(String email, String pass) {
-        baseSetUp.logInPage.insertEmailAndPassword(email,pass);
+        baseSetUp.logInPage.insertEmailAndPassword(email, pass);
     }
 
     @Then("^The user is able to LogIn$")
@@ -50,7 +50,7 @@ public class ImplementationLogInFeature {
     @When("^I enter invalid email (.*) and valid password (.*)")
     public void iEnterInvalidUsernameAndValidPassword(String email, String password) {
 
-        baseSetUp.logInPage.insertEmailAndPassword(email,password);
+        baseSetUp.logInPage.insertEmailAndPassword(email, password);
     }
 
     @And("^The user is able to Log Out$")

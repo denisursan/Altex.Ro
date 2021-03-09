@@ -44,10 +44,10 @@ public class OrdersPetStoreImplementation {
         orderCreatedResponse = given().when().contentType(ContentType.JSON).body(order).post(baseUrl + path).then().statusCode(200).log().all().extract().response();
     }
 
-    @Then("the order will be created in the database with a valid HTTP")
-    public void iReceiveAValidHTTPResponse() {
+    @Then("^the order will be created in the database with a valid HTTP code response (.*)$")
+    public void iReceiveAValidHTTPResponse(int code) {
         orderCreatedResponse.getBody().as(Order.class);
-        assertEquals(orderCreatedResponse.getStatusCode(), 200);
+        assertEquals(orderCreatedResponse.getStatusCode(), code);
 
     }
 
@@ -63,15 +63,15 @@ public class OrdersPetStoreImplementation {
 
     }
 
-    @Then("I receive valid HTTP code response for order request")
-    public void iReceiveValidHTTPCodeResponseForOrderRequest() {
+    @Then("^I receive valid HTTP code (.*) response for order request$")
+    public void iReceiveValidHTTPCodeResponseForOrderRequest(int code) {
         orderResponse = getResponseforASpecificGetOrderRequest.getBody().as(Order.class);
-        assertEquals(getResponseforASpecificGetOrderRequest.getStatusCode(), 200);
+        assertEquals(getResponseforASpecificGetOrderRequest.getStatusCode(), code);
     }
 
-    @And("I verify the order by Id")
-    public void iVerifyTheOrderById() {
-        assertEquals(orderResponse.getOrderId(), 5);
+    @And("^I verify the order by Id (.*)$")
+    public void iVerifyTheOrderById(int id) {
+        assertEquals(orderResponse.getOrderId(), id);
 
     }
 
@@ -90,9 +90,9 @@ public class OrdersPetStoreImplementation {
 
     }
 
-    @Then("I receive delete validation for the order as an HTTP code")
-    public void iReceiveDeleteValidationForTheOrderAsAnHTTPCode() {
-        assertEquals(deleteOrderResponse.getStatusCode(), 200);
+    @Then("^I receive delete validation for the order as an HTTP code (.*)$")
+    public void iReceiveDeleteValidationForTheOrderAsAnHTTPCode(int code) {
+        assertEquals(deleteOrderResponse.getStatusCode(), code);
     }
 
 
@@ -127,9 +127,9 @@ public class OrdersPetStoreImplementation {
 
     }
 
-    @And("I receive a valid response code")
-    public void iReceiveAValidResponseCode() {
-        assertEquals(responseInventory.statusCode(), 200);
+    @And("^I receive a valid response code (.*)$")
+    public void iReceiveAValidResponseCode(int code) {
+        assertEquals(responseInventory.statusCode(), code);
 
     }
 }
