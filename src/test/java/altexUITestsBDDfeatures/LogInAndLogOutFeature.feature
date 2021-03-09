@@ -51,7 +51,7 @@ Feature: Test LogIn feature
 
   Scenario: Test if user is able to log in by pressing back button after logOut
     Given User accesses Altex website
-    When I enter valid username and valid password
+    When I enter valid email <email> and valid password <password>
     Then The user is able to LogIn
     And The user is able to Log Out
     And User clicks on back button
