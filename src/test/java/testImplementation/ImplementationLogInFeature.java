@@ -53,4 +53,27 @@ public class ImplementationLogInFeature {
         baseSetUp.logInPage.getContulMeuButton().click();
         assertTrue(baseSetUp.logInPage.getAutentificareButton().isDisplayed());
     }
+
+    @When("User clicks Contul meu btn")
+    public void userClicksContulMeuBtn() {
+        baseSetUp.logInPage.getContulMeuButton().click();
+
+    }
+
+    @And("User clicks on Inregistrare btn")
+    public void userClicksOnInregistrareBtn() {
+        baseSetUp.logInPage.getInregistrareBtn().click();
+    }
+
+    @Then("User enters valid username and valid password")
+    public void userEntersValidUsernameAndValidPassword() {
+        baseSetUp.logInPage.insertValidUsernameAndPasswordinAmDejaContsection();
+
+    }
+
+   @And("User is able to Log In")
+    public void userIsAbleToLogIn() {
+        baseSetUp.logInPage.getContulMeuButton().click();
+       assertTrue(baseSetUp.mainPage.getComenzileMeleBtn().isDisplayed());
+    }
 }

@@ -22,6 +22,16 @@ public class LogInPage {
     private WebElement autentificareButton;
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/div/a")
     private WebElement recuperareParolaBtn;
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/form/div[3]/div/a/div/div/div")
+    private WebElement inregistrareBtn;
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[3]/main/div[2]/div/div/form/input[1]")
+    private WebElement emailFieldFromAMDejaCont;
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[3]/main/div[2]/div/div/form/input[2]")
+    private WebElement passwordFieldFromAMDejaCont;
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[3]/main/div[2]/div/div/form/div[3]/button/div/div/div")
+    private WebElement LogheazateinContBtnFromAmDejaContSection;
+
+
     public void insertValidUsernameAndPassword() {
         contulMeuButton.click();
         WebElement username = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/form/input[1]"));
@@ -47,5 +57,10 @@ public class LogInPage {
         password.sendKeys("RRO_12345");
         WebElement autentificareButton = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/form/div[3]/span/button/div/div/div"));
         autentificareButton.click();
+    }
+    public void insertValidUsernameAndPasswordinAmDejaContsection(){
+        emailFieldFromAMDejaCont.sendKeys("rovidyu@yahoo.com");
+        passwordFieldFromAMDejaCont.sendKeys("RRO_12345");
+        LogheazateinContBtnFromAmDejaContSection.click();
     }
 }

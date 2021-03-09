@@ -1,8 +1,5 @@
 package testImplementation;
 
-import JUnitTests.Tests;
-import org.junit.jupiter.api.Test;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import utils.*;
