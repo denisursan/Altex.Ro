@@ -56,10 +56,10 @@ public class UtilsButtons {
 
 
 
-    public int getNumberOfItemsFromTheBasket(){
-        return Integer.parseInt(numberOfElementsFromBasket.getAttribute("class"));
-
-    }
+//    public int getNumberOfItemsFromTheBasket(){
+//        return Integer.parseInt(numberOfElementsFromBasket.getAttribute("class"));
+//
+//    }
 
 
 

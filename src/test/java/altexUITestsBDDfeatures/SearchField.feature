@@ -28,11 +28,11 @@ Feature: Test Search Field
       | product |
       | iphone  |
 
-  Scenario:Check if the user can search for a product and select the suggested category product
+  Scenario Outline:Check if the user can search for a product and select the suggested category product
     Given User accesses Altex site
     When User inserts product <product> in the Search Field and select the suggested category product
     Then User is able to navigate to the selected product's category page
     And Close browser
     Examples:
-      | product |
-      | anvelopa  |
+      | product  |
+      | anvelopa |

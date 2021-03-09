@@ -1,30 +1,43 @@
 Feature: Test LogIn feature
 
   @SimpleTest
-  Scenario: LogIn with valid credentials
+  Scenario Outline: LogIn with valid credentials
     Given User accesses Altex website
-    When I enter valid username and valid password
+    When I enter valid email <email> and valid password <password>
     Then The user is able to LogIn
     And Closes browser
+    Examples:
+      | email             | password  |
+      | rovidyu@yahoo.com | RRO_12345 |
 
-  Scenario: LogIn with invalid(password) credentials
+  Scenario Outline: LogIn with invalid(password) credentials
     Given User accesses Altex website
-    When I enter valid username and invalid password
+    When I enter valid email <email> and invalid password <password>
     Then The user is not able to LogIn
     And Closes browser
+    Examples:
+      | email             | password |
+      | rovidyu@yahoo.com | RRO_6523 |
 
-  Scenario: LogIn with invalid(email) credentials
+
+  Scenario Outline: LogIn with invalid(email) credentials
     Given User accesses Altex website
-    When I enter invalid username and valid password
+    When I enter invalid email <email> and valid password <password>
     Then The user is not able to LogIn
     And Closes browser
+    Examples:
+      | email             | password |
+      | rovidyu@gmail.com | RRO_6523 |
 
-  Scenario: Test logOut feature
+  Scenario Outline: Test logOut feature
     Given User accesses Altex website
-    When I enter valid username and valid password
+    When I enter valid email <email> and valid password <password>
     Then The user is able to LogIn
     And The user is able to Log Out
     And Closes browser
+    Examples:
+      | email             | password  |
+      | rovidyu@yahoo.com | RRO_12345 |
 
 
   Scenario: Test LogIn feature from Am deja cont section
