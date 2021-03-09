@@ -25,7 +25,6 @@ public class ImplementationShoppingCartFeature {
         baseSetUp.mainPage.openWebsite();
         baseSetUp.mainPage.backToMainPage();
         baseSetUp.mainPage.getAcceptaBtn().click();
-
     }
 
     @When("User searches for a product and clicks on Cauta btn")
@@ -49,11 +48,7 @@ public class ImplementationShoppingCartFeature {
 
     @Then("User clicks on Vezi cosul btn")
     public void userClickOnVeziCosulBtn() throws InterruptedException {
-        Thread.sleep(2000);
-        // baseSetUp.utilsButtons.getAcceptaConditiiBtn().click();
         baseSetUp.utils.scrollToBottomOfThePage();
-        // js.executeScript("arguments[0].scrollIntoView(true);", baseSetUp.utilsButtons.getVeziCosulbtn());
-        Thread.sleep(2000);
         baseSetUp.utilsButtons.getVeziCosulbtn().click();
         baseSetUp.productsPage.getAssertProductDisplayedInTheShoppingCart().isDisplayed();
 
@@ -66,31 +61,24 @@ public class ImplementationShoppingCartFeature {
 
     @And("Clicks on Inapoi btn")
     public void clicksOnInapoiBtn() throws InterruptedException {
-
-
-        Thread.sleep(2000);
-        // baseSetUp.utilsButtons.getAcceptaConditiiBtn().click();
         js.executeScript("arguments[0].scrollIntoView(true);", baseSetUp.utilsButtons.getInapoiBtnFromBasket());
-        Thread.sleep(2000);
         baseSetUp.utilsButtons.getInapoiBtnFromBasket().click();
     }
 
     @Then("User clicks on Cosul meu btn and then on X button")
     public void userClicksOnCosulMeuBtnAndThenOnXButton() throws InterruptedException {
-        Thread.sleep(3000);
+        js.executeScript("arguments[0].scrollIntoView(true);", baseSetUp.mainPage.getCosulMeubtn());
         baseSetUp.mainPage.getCosulMeubtn().click();
-        Thread.sleep(3000);
+        js.executeScript("arguments[0].scrollIntoView(true);", baseSetUp.utilsButtons.getCosulMeuXbtn());
         baseSetUp.utilsButtons.getCosulMeuXbtn().click();
     }
 
     @Then("User clicks on + sign 2 times and on - one time in order to increase and decrese the quantity of the products")
     public void userClickOnSignInOrderToIncreaseTheQuantityOfTheProducts() throws InterruptedException {
         baseSetUp.utilsButtons.getIncreaseNumberOfItemsBtnFromCosulMeu().click();
-        Thread.sleep(3000);
         baseSetUp.utilsButtons.getIncreaseNumberOfItemsBtnFromCosulMeu().click();
-        Thread.sleep(3000);
         baseSetUp.utilsButtons.getDecreaseNumberOfItemsBtnFromCosulMeu().click();
-        Thread.sleep(3000);
+        js.executeScript("arguments[0].scrollIntoView(true);", baseSetUp.utilsButtons.getDecreaseNumberOfItemsBtnFromCosulMeu());
         List<WebElement> cartItems = baseSetUp.driver.findElements(By.className("Cart-itemContainer"));
         for (WebElement cartItem :
                 cartItems) {
@@ -101,7 +89,6 @@ public class ImplementationShoppingCartFeature {
                 assertEquals("2", value);
             }
         }
-
     }
 
     @When("User clicks on Cosul meu btn")
@@ -124,9 +111,7 @@ public class ImplementationShoppingCartFeature {
 
     @And("User clicks on the Vezi cosul button")
     public void userClicksOnTheVeziCosulButton() throws InterruptedException {
-        Thread.sleep(3000);
         baseSetUp.utilsButtons.getVeziCosulbtn().click();
-
     }
 
     @And("User clicks on Acasa button located in the top left corner")
@@ -151,7 +136,6 @@ public class ImplementationShoppingCartFeature {
         baseSetUp.productCategories.getTelefoaneTablete().click();
         baseSetUp.productCategories.getTelefoane().click();
         baseSetUp.productCategories.getAdaugaInCosTelefon1().click();
-        // baseSetUp.mainPage.acceptaButton();
         js.executeScript("arguments[0].scrollIntoView(true);", baseSetUp.utilsButtons.getInapoiBtnFromBasket());
         baseSetUp.utilsButtons.getInapoiBtnFromBasket().click();
         baseSetUp.productCategories.getAdaugaInCosTelefon2().click();

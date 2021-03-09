@@ -1,5 +1,6 @@
 package JUnitTests;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -25,6 +26,7 @@ public class AltexWebsiteSeleniumTests {
     ProductCategories productCategories;
     SocialMediaButtons socialMediaButtons;
 
+
     @BeforeEach
     public void setup() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/seleniumdriver/chromedriver/chromedriver 2");
@@ -40,6 +42,13 @@ public class AltexWebsiteSeleniumTests {
         productCategories = new ProductCategories(driver);
         socialMediaButtons = new SocialMediaButtons(driver);
 
+
+
+
+    }
+    @AfterEach
+    public void tearDown(){
+        driver.quit();
     }
 
     @Test
@@ -87,11 +96,12 @@ public class AltexWebsiteSeleniumTests {
     public void checkIfUserCanAddAProductInTheBasketFromOferteleZileiCategory() throws InterruptedException {
         WebElement firstProductFromOferteleZilei = driver.findElement(By.xpath("//*[@id=\"oferte-zilnice\"]/div/div/div/div/div[1]/a/div/img"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", firstProductFromOferteleZilei);
-        Thread.sleep(2500);
         firstProductFromOferteleZilei.click();
+        WebElement AdaugaInCosBtnFromProductPage = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div/div[2]/div[1]/div[2]/div[2]/div/div/div[4]/div/div[1]/div[1]/div/div/button/div/div[2]/div"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", AdaugaInCosBtnFromProductPage);
         productsPage.getAdaugaInCosBtnFromProductPage().click();
         WebElement productInCart = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[2]/div[1]/ul/li/div/div/div[1]/ul/li/div[2]/h2/a"));
-        Thread.sleep(2000);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", productInCart);
         assertTrue(productInCart.isDisplayed());
     }
 

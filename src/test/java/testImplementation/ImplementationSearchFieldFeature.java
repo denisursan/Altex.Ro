@@ -33,9 +33,8 @@ public class ImplementationSearchFieldFeature {
 
     }
 
-    @When("User inserts Laptop in the Search Field and clicks on the search button")
-    public void userInsertsLaptopInTheSearchField() {
-        String text = "laptop";
+    @When("^User inserts product (.*) in the Search Field and clicks on the search button$")
+    public void userInsertsLaptopInTheSearchField(String text) {
         baseSetUp.mainPage.getSearchFIeldBtn().sendKeys(text);
         baseSetUp.mainPage.getCautaBtn().click();
     }
@@ -53,9 +52,9 @@ public class ImplementationSearchFieldFeature {
         baseSetUp.driver.quit();
     }
 
-    @When("User inserts Iphone in the Search Field and presses ENTER key")
-    public void userInsertsIphoneInTheSearchFieldAndPressesENTERKey() {
-        baseSetUp.mainPage.getSearchFIeldBtn().sendKeys("Iphone");
+    @When("^User inserts product (.*) in the Search Field and presses ENTER key$")
+    public void userInsertsIphoneInTheSearchFieldAndPressesENTERKey(String text) {
+        baseSetUp.mainPage.getSearchFIeldBtn().sendKeys(text);
         baseSetUp.mainPage.getSearchFIeldBtn().sendKeys(Keys.ENTER);
 
     }
@@ -68,9 +67,9 @@ public class ImplementationSearchFieldFeature {
     }
 
 
-    @When("User inserts Iphone in the Search Field and select the suggested product")
-    public void userInsertsIphoneInTheSearchFieldAndSelectTheSuggestedProduct() {
-        baseSetUp.mainPage.getSearchFIeldBtn().sendKeys("Iphone");
+    @When("^User inserts product (.*) in the Search Field and select the suggested product$")
+    public void userInsertsIphoneInTheSearchFieldAndSelectTheSuggestedProduct(String text) {
+        baseSetUp.mainPage.getSearchFIeldBtn().sendKeys(text);
         baseSetUp.productsPage.getIphoneSuggestedProduct().click();
 
     }
@@ -82,9 +81,9 @@ public class ImplementationSearchFieldFeature {
 
     }
 
-    @When("User inserts Anvelopa in the Search Field and select the suggested category product")
-    public void userInsertsIphoneInTheSearchFieldAndSelectTheSuggestedCategoryProduct() {
-        baseSetUp.mainPage.getSearchFIeldBtn().sendKeys("anvelopa");
+    @When("^User inserts product (.*) in the Search Field and select the suggested category product$")
+    public void userInsertsIphoneInTheSearchFieldAndSelectTheSuggestedCategoryProduct(String text) {
+        baseSetUp.mainPage.getSearchFIeldBtn().sendKeys(text);
         baseSetUp.productsPage.getAnvelopaCategorySuggested().click();
     }
 

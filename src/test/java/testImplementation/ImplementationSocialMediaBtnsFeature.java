@@ -4,6 +4,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -11,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class ImplementationSocialMediaBtnsFeature {
 
     BaseSetUp baseSetUp = new BaseSetUp(5);
+    WebDriverWait wait = new WebDriverWait(baseSetUp.driver,5);
 
 
     @Given("Open website")
@@ -65,9 +69,11 @@ public class ImplementationSocialMediaBtnsFeature {
     }
 
     @Then("The user is able to navigate on LinkedIn page")
-    public void theUserIsAbleToNavigateOnLinkedInPage() {
+    public void theUserIsAbleToNavigateOnLinkedInPage() throws InterruptedException {
         baseSetUp.socialMediaButtons.openLinkedInTab();
-        assertTrue(baseSetUp.socialMediaButtons.getFirstNameInputField().isDisplayed());
+        String title = "ALTEX Romania | LinkedIn";
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/header/nav/div")));
+        assertEquals(title, baseSetUp.driver.getTitle());
 
 
     }

@@ -19,13 +19,13 @@ public class ImplementationLogInFeature {
     }
     @Then("^The user is able to LogIn$")
     public void theUserIsAbleToLogIn() throws InterruptedException {
-        Thread.sleep(10000);
+        Thread.sleep(3000);
         assertTrue(baseSetUp.mainPage.getComenzileMeleBtn().isDisplayed());
-        Thread.sleep(10000);
+        Thread.sleep(3000);
     }
-    @And("^Closes browser$")
+    @And("Closes browser")
     public void closesBrowser() {
-        baseSetUp.driver.quit();
+       baseSetUp.driver.quit();
     }
     @When("I enter valid username and invalid password$")
     public void iEnterValidUsernameAndInvalidPassword() {
@@ -46,7 +46,7 @@ public class ImplementationLogInFeature {
     }
     @And("User clicks on back button")
     public void userClicksOnBackButton() {
-        baseSetUp.driver.navigate().back();
+        baseSetUp.driver.navigate().refresh();
     }
     @And("The user is not able to LogIn back")
     public void theUserIsNotAbleToLogInBack() {

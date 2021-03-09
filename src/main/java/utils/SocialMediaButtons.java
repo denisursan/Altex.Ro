@@ -74,6 +74,10 @@ public class SocialMediaButtons {
             String windowHandle = (String) iter.next();
             // Thread.sleep(3000);
             driver.switchTo().window(windowHandle);
+            if (driver.getTitle().equals("ALTEX Romania | LinkedIn")) {
+                break;
+
+            }
             }
         }
 
