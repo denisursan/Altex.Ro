@@ -3,76 +3,248 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2021-03-09T15:20:49.751Z",
-        "line": 4,
-        "name": "LogIn with valid credentials",
+        "start_timestamp": "2021-03-10T09:14:17.064Z",
+        "line": 3,
+        "name": "Check if Facebook button works",
         "description": "",
-        "id": "test-login-feature;login-with-valid-credentials",
+        "id": "test-social-media-buttons;check-if-facebook-button-works",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 22459188000,
+              "duration": 20360505000,
               "status": "passed"
             },
-            "line": 5,
-            "name": "User accesses Altex website",
+            "line": 4,
+            "name": "Open website",
             "match": {
-              "location": "testImplementation.ImplementationLogInFeature.userAccessesAltexWebsite()"
+              "location": "testImplementation.ImplementationSocialMediaBtnsFeature.userAccessesTheAltexSite()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 1498646000,
+              "duration": 1345446000,
               "status": "passed"
             },
-            "line": 6,
-            "name": "I enter valid username and valid password",
+            "line": 5,
+            "name": "User clicks on Facebook button",
             "match": {
-              "location": "testImplementation.ImplementationLogInFeature.iEnterValidUsernameAndValidPassword()"
+              "location": "testImplementation.ImplementationSocialMediaBtnsFeature.userClicksOnFacebookButton()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "error_message": "org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //*[@id\u003d\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/ul/li[4]/a (tried for 8 second(s) with 500 milliseconds interval)\n\tat org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)\n\tat testImplementation.ImplementationLogInFeature.theUserIsAbleToLogIn(ImplementationLogInFeature.java:33)\n\tat ✽.The user is able to LogIn(file:///Users/ursandenis/Documents/Altex.Ro.Project/src/test/java/altexUITestsBDDfeatures/LogInAndLogOutFeature.feature:7)\nCaused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//*[@id\u003d\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/ul/li[4]/a\"}\n  (Session info: chrome\u003d88.0.4324.192)\nFor documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027192-168-0-100.rdsnet.ro\u0027, ip: \u0027fe80:0:0:0:ce1:ff87:948a:8aa8%en0\u0027, os.name: \u0027Mac OS X\u0027, os.arch: \u0027x86_64\u0027, os.version: \u002710.15.7\u0027, java.version: \u002711.0.9.1\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.192, chrome: {chromedriverVersion: 87.0.4280.88 (89e2380a3e36c..., userDataDir: /var/folders/q2/ccl2363s4j1...}, goog:chromeOptions: {debuggerAddress: localhost:63122}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}\nSession ID: 6005d998bf955b0642381be9e2542dfc\n*** Element info: {Using\u003dxpath, value\u003d//*[@id\u003d\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/ul/li[4]/a}\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)\n\tat org.openqa.selenium.By$ByXPath.findElement(By.java:353)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)\n\tat org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)\n\tat org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)\n\tat testImplementation.ImplementationLogInFeature.theUserIsAbleToLogIn(ImplementationLogInFeature.java:33)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:566)\n\tat io.cucumber.java.Invoker.doInvoke(Invoker.java:66)\n\tat io.cucumber.java.Invoker.invoke(Invoker.java:24)\n\tat io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)\n\tat io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)\n\tat io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)\n\tat io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)\n\tat io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)\n\tat io.cucumber.core.runner.TestStep.executeStep(TestStep.java:92)\n\tat io.cucumber.core.runner.TestStep.run(TestStep.java:64)\n\tat io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)\n\tat io.cucumber.core.runner.TestCase.run(TestCase.java:104)\n\tat io.cucumber.core.runner.Runner.runPickle(Runner.java:73)\n\tat io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:151)\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:135)\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:27)\n\tat org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)\n\tat org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)\n\tat org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:413)\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:200)\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:90)\n\tat org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)\n\tat org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)\n\tat io.cucumber.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:235)\n\tat org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:413)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:137)\n\tat com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)\n\tat com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:33)\n\tat com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:220)\n\tat com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:53)\n",
-              "duration": 14600663000,
-              "status": "failed"
+              "duration": 6435602000,
+              "status": "passed"
             },
-            "line": 7,
-            "name": "The user is able to LogIn",
+            "line": 6,
+            "name": "The user is able to navigate on Facebook page",
             "match": {
-              "location": "testImplementation.ImplementationLogInFeature.theUserIsAbleToLogIn()"
+              "location": "testImplementation.ImplementationSocialMediaBtnsFeature.theUserIsAbleToNavigateOnFacebookPage()"
             },
             "keyword": "Then "
           },
           {
             "result": {
-              "duration": 1543000,
-              "status": "skipped"
+              "duration": 827719000,
+              "status": "passed"
             },
-            "line": 8,
-            "name": "Closes browser",
+            "line": 7,
+            "name": "Close the page",
             "match": {
-              "location": "testImplementation.ImplementationLogInFeature.closesBrowser()"
+              "location": "testImplementation.ImplementationSocialMediaBtnsFeature.closeThePage()"
             },
             "keyword": "And "
           }
-        ],
-        "tags": [
+        ]
+      },
+      {
+        "start_timestamp": "2021-03-10T09:14:46.389Z",
+        "line": 9,
+        "name": "Check if Twitter button works",
+        "description": "",
+        "id": "test-social-media-buttons;check-if-twitter-button-works",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
           {
-            "name": "@SimpleTest"
+            "result": {
+              "duration": 18336088000,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "Open website",
+            "match": {
+              "location": "testImplementation.ImplementationSocialMediaBtnsFeature.userAccessesTheAltexSite()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 783801000,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "User clicks on Twitter button",
+            "match": {
+              "location": "testImplementation.ImplementationSocialMediaBtnsFeature.userClicksOnTwitterButton()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 8835590000,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "The user is able to navigate on Twitter page",
+            "match": {
+              "location": "testImplementation.ImplementationSocialMediaBtnsFeature.theUserIsAbleToNavigateOnTwitterPage()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 604657000,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "Close the page",
+            "match": {
+              "location": "testImplementation.ImplementationSocialMediaBtnsFeature.closeThePage()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-03-10T09:15:15.026Z",
+        "line": 15,
+        "name": "Check if LinkedIn button works",
+        "description": "",
+        "id": "test-social-media-buttons;check-if-linkedin-button-works",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 18183633000,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "Open website",
+            "match": {
+              "location": "testImplementation.ImplementationSocialMediaBtnsFeature.userAccessesTheAltexSite()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 659651000,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "User clicks on LinkedIn button",
+            "match": {
+              "location": "testImplementation.ImplementationSocialMediaBtnsFeature.userClicksOnLinkedInButton()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: /html/body/header/nav/div (tried for 5 second(s) with 500 milliseconds interval)\n\tat org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)\n\tat testImplementation.ImplementationSocialMediaBtnsFeature.theUserIsAbleToNavigateOnLinkedInPage(ImplementationSocialMediaBtnsFeature.java:75)\n\tat ✽.The user is able to navigate on LinkedIn page(file:///Users/ursandenis/Documents/Altex.Ro.Project/src/test/java/altexUITestsBDDfeatures/SocialMediaBtns.feature:18)\nCaused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"/html/body/header/nav/div\"}\n  (Session info: chrome\u003d88.0.4324.192)\nFor documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027192-168-0-100.rdsnet.ro\u0027, ip: \u0027fe80:0:0:0:ce1:ff87:948a:8aa8%en0\u0027, os.name: \u0027Mac OS X\u0027, os.arch: \u0027x86_64\u0027, os.version: \u002710.15.7\u0027, java.version: \u002711.0.9.1\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.192, chrome: {chromedriverVersion: 87.0.4280.88 (89e2380a3e36c..., userDataDir: /var/folders/q2/ccl2363s4j1...}, goog:chromeOptions: {debuggerAddress: localhost:49872}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}\nSession ID: b497884cb8153778e014e98e169c935f\n*** Element info: {Using\u003dxpath, value\u003d/html/body/header/nav/div}\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)\n\tat org.openqa.selenium.By$ByXPath.findElement(By.java:353)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)\n\tat org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)\n\tat org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)\n\tat testImplementation.ImplementationSocialMediaBtnsFeature.theUserIsAbleToNavigateOnLinkedInPage(ImplementationSocialMediaBtnsFeature.java:75)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:566)\n\tat io.cucumber.java.Invoker.doInvoke(Invoker.java:66)\n\tat io.cucumber.java.Invoker.invoke(Invoker.java:24)\n\tat io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)\n\tat io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)\n\tat io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)\n\tat io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)\n\tat io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)\n\tat io.cucumber.core.runner.TestStep.executeStep(TestStep.java:92)\n\tat io.cucumber.core.runner.TestStep.run(TestStep.java:64)\n\tat io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)\n\tat io.cucumber.core.runner.TestCase.run(TestCase.java:104)\n\tat io.cucumber.core.runner.Runner.runPickle(Runner.java:73)\n\tat io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:151)\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:135)\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:27)\n\tat org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)\n\tat org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)\n\tat org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:413)\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:200)\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:90)\n\tat org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)\n\tat org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)\n\tat io.cucumber.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:235)\n\tat org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:413)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:137)\n\tat com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)\n\tat com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:33)\n\tat com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:220)\n\tat com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:53)\n",
+              "duration": 6583027000,
+              "status": "failed"
+            },
+            "line": 18,
+            "name": "The user is able to navigate on LinkedIn page",
+            "match": {
+              "location": "testImplementation.ImplementationSocialMediaBtnsFeature.theUserIsAbleToNavigateOnLinkedInPage()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 978000,
+              "status": "skipped"
+            },
+            "line": 19,
+            "name": "Close the page",
+            "match": {
+              "location": "testImplementation.ImplementationSocialMediaBtnsFeature.closeThePage()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-03-10T09:15:40.582Z",
+        "line": 21,
+        "name": "Check if Youtube button works",
+        "description": "",
+        "id": "test-social-media-buttons;check-if-youtube-button-works",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 15485035000,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "Open website",
+            "match": {
+              "location": "testImplementation.ImplementationSocialMediaBtnsFeature.userAccessesTheAltexSite()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 382890000,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "User clicks on Youtube button",
+            "match": {
+              "location": "testImplementation.ImplementationSocialMediaBtnsFeature.userClicksOnYoutubeButton()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 7593521000,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "The user is able to navigate on Youtube page",
+            "match": {
+              "location": "testImplementation.ImplementationSocialMediaBtnsFeature.theUserIsAbleToNavigateOnYoutubePage()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 347506000,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "Close the page",
+            "match": {
+              "location": "testImplementation.ImplementationSocialMediaBtnsFeature.closeThePage()"
+            },
+            "keyword": "And "
           }
         ]
       }
     ],
-    "name": "Test LogIn feature",
+    "name": "Test social-media buttons",
     "description": "",
-    "id": "test-login-feature",
+    "id": "test-social-media-buttons",
     "keyword": "Feature",
-    "uri": "file:src/test/java/altexUITestsBDDfeatures/LogInAndLogOutFeature.feature",
+    "uri": "file:src/test/java/altexUITestsBDDfeatures/SocialMediaBtns.feature",
     "tags": []
   }
 ]

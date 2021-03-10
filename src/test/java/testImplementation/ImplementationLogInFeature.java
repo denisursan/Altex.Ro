@@ -60,7 +60,10 @@ public class ImplementationLogInFeature {
     }
 
     @And("User clicks on back button")
-    public void userClicksOnBackButton() {
+    public void userClicksOnBackButton() throws InterruptedException {
+        // ((IJavaScriptExecutor)webDriver).ExecuteScript("history.go(-1);", new Object[0]);
+        // wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/form/div[3]/span/button/div/div/div")));
+        Thread.sleep(3000);
         baseSetUp.driver.navigate().back();
     }
 

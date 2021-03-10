@@ -49,7 +49,7 @@ Feature: Test LogIn feature
     And Closes browser
 
 
-  Scenario: Test if user is able to log in by pressing back button after logOut
+  Scenario Outline: Test if user is able to log in by pressing back button after logOut
     Given User accesses Altex website
     When I enter valid email <email> and valid password <password>
     Then The user is able to LogIn
@@ -57,4 +57,7 @@ Feature: Test LogIn feature
     And User clicks on back button
     And The user is not able to LogIn back
     And Closes browser
+    Examples:
+      | email             | password  |
+      | rovidyu@yahoo.com | RRO_12345 |
 

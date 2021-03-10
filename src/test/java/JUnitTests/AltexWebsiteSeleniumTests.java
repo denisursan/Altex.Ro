@@ -8,6 +8,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.*;
 
 import java.util.concurrent.TimeUnit;
@@ -25,6 +27,8 @@ public class AltexWebsiteSeleniumTests {
     Utils utils;
     ProductCategories productCategories;
     SocialMediaButtons socialMediaButtons;
+    WebDriverWait wait;
+
 
 
     @BeforeEach
@@ -41,6 +45,7 @@ public class AltexWebsiteSeleniumTests {
         utils = new Utils(driver);
         productCategories = new ProductCategories(driver);
         socialMediaButtons = new SocialMediaButtons(driver);
+        wait = new WebDriverWait(driver, 8);
 
 
 
@@ -132,6 +137,7 @@ public class AltexWebsiteSeleniumTests {
     public void checkHuaweiAddFromMainPage() {
         utils.scrollToBottomOfThePage();
         mainPage.getHuaweiAddBtn().click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[1]/ol/li[2]/strong")));
         WebElement huaweiStrongMessage = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[1]/ol/li[2]/strong"));
         assertTrue(huaweiStrongMessage.isDisplayed());
     }
