@@ -84,14 +84,14 @@ public class ImplementationLogInFeature {
         baseSetUp.logInPage.getInregistrareBtn().click();
     }
 
-    @Then("User enters valid username and valid password")
-    public void userEntersValidUsernameAndValidPassword() {
-        baseSetUp.logInPage.insertValidUsernameAndPasswordinAmDejaContsection();
+    @Then("^When I enter valid email (.*) and valid password (.*)$")
+    public void userEntersValidUsernameAndValidPassword(String email,String password) {
+        baseSetUp.logInPage.insertValidUsernameAndPasswordinAmDejaContsection(email,password);
 
     }
 
     @And("User is able to Log In")
-    public void userIsAbleToLogIn() {
+    public void userIsAbleToLogIn(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/a/div[3]/span")));
         baseSetUp.logInPage.getContulMeuButton().click();
         assertTrue(baseSetUp.mainPage.getComenzileMeleBtn().isDisplayed());

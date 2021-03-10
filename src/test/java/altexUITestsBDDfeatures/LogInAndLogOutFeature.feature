@@ -40,13 +40,16 @@ Feature: Test LogIn feature
       | rovidyu@yahoo.com | RRO_12345 |
 
 
-  Scenario: Test LogIn feature from Am deja cont section
+  Scenario Outline: Test LogIn feature from Am deja cont section
     Given User accesses Altex website
     When User clicks Contul meu btn
     And User clicks on Inregistrare btn
-    Then User enters valid username and valid password
+    Then  When I enter valid email <email> and valid password <password>
     And User is able to Log In
     And Closes browser
+    Examples:
+      | email             | password  |
+      | rovidyu@yahoo.com | RRO_12345 |
 
 
   Scenario Outline: Test if user is able to log in by pressing back button after logOut

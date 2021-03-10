@@ -41,9 +41,9 @@ public class LogInPage {
         autentificareButton.click();
     }
 
-    public void insertValidUsernameAndPasswordinAmDejaContsection(){
-        emailFieldFromAMDejaCont.sendKeys("rovidyu@yahoo.com");
-        passwordFieldFromAMDejaCont.sendKeys("RRO_12345");
+    public void insertValidUsernameAndPasswordinAmDejaContsection(String email, String pass){
+        emailFieldFromAMDejaCont.sendKeys(email);
+        passwordFieldFromAMDejaCont.sendKeys(pass);
         LogheazateinContBtnFromAmDejaContSection.click();
     }
 }
