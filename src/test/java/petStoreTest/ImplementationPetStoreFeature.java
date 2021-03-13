@@ -6,16 +6,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.Test;
-import org.junit.runner.Request;
 import petStore.Pet;
 import response.DeletedPetResponse;
-import response.PetResponse;
-import testImplementation.BaseSetUp;
-
 import static io.restassured.RestAssured.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class ImplementationPetStoreFeature {
     private int petId = 23;
