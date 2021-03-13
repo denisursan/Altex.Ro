@@ -109,7 +109,6 @@ public class OrdersPetStoreImplementation {
 
     @Then("^The response code  will be (.*)$")
     public void theResponseCodeWillBeCode(int code) {
-        DeletedPetResponse orderResponse = getResponseforASpecificGetOrderRequest.getBody().as(DeletedPetResponse.class);
         assertEquals(getResponseforASpecificGetOrderRequest.getStatusCode(), code);
 
 

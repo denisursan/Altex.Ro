@@ -24,20 +24,10 @@ public class ImplementationPetStoreFeature {
     private String path = "/pet";
     private String queryParam = "/findByStatus?status=available";
     Response response;
-    Pet petresponse;
-    String getAllPets = baseUrl + path + queryParam;
     Pet pet;
     Pet pet1;
-    Response getSpecificPetResponse;
     Pet updatedPet;
-    Response responseUpdatedPet;
     Response deletedResponse;
-    Response findBYStatusResponse;
-    Response getresponse;
-    Response statusGetResponse;
-    Response anotherPetCreated;
-    Response getPet1SpecificResponse;
-    Response deletedResponsepet1;
     Pet updatedpet1;
 
     @Given("I Set Get pet api endpoint")
@@ -48,7 +38,7 @@ public class ImplementationPetStoreFeature {
 
     @When("I perform Get operation for pets")
     public void iperformGetOperation() {
-        getresponse = when().get(baseUrl + path + queryParam).
+        response = when().get(baseUrl + path + queryParam).
                 then().statusCode(200).log().all().extract().response();
 
 
@@ -57,7 +47,7 @@ public class ImplementationPetStoreFeature {
 
     @Then("^I receive valid HTTP response code (.*)$")
     public void iReceiveValidHTTPResponseCode(int code) {
-        assertEquals(getresponse.getStatusCode(), 200);
+        assertEquals(response.getStatusCode(), 200);
 
 
     }
@@ -94,7 +84,7 @@ public class ImplementationPetStoreFeature {
 
     @Given("I set the request HEADER")
     public void iSetTheRequestHEADER() {
-        getSpecificPetResponse = given().contentType(ContentType.JSON).when().get(baseUrl + path + "/" + petId).
+        response = given().contentType(ContentType.JSON).when().get(baseUrl + path + "/" + petId).
                 then().statusCode(200).log().all().extract().response();
     }
 
@@ -106,15 +96,15 @@ public class ImplementationPetStoreFeature {
 
     @Then("^I receive valid HTTP code (.*) response$")
     public void iReceiveValidHTTPCodeResponse(int code ) {
-        Pet specificPetResponse = getSpecificPetResponse.getBody().as(Pet.class);
-        assertEquals(getSpecificPetResponse.getStatusCode(), code);
+        Pet specificPetResponse = response.getBody().as(Pet.class);
+        assertEquals(response.getStatusCode(), code);
 
 
     }
 
     @And("^I receive the pet name (.*)$")
     public void iReceiveThePetName(String name) {
-        Pet specificPetResponse = getSpecificPetResponse.getBody().as(Pet.class);
+        Pet specificPetResponse = response.getBody().as(Pet.class);
         assertEquals(specificPetResponse.getPetName(), name);
 
     }
@@ -132,15 +122,15 @@ public class ImplementationPetStoreFeature {
 
     @When("I set a Put Http request")
     public void iSetAPutHttpRequest() {
-        responseUpdatedPet = given().when().contentType(ContentType.JSON).body(updatedPet).put(baseUrl + path).then().extract().response();
+        response = given().when().contentType(ContentType.JSON).body(updatedPet).put(baseUrl + path).then().extract().response();
 
 
     }
 
     @And("^I receive a valid HTTP code (.*)$")
     public void iReceiveValidHTTPCodeR(int code) {
-        Pet petUpdatedResponse = responseUpdatedPet.getBody().as(Pet.class);
-        assertEquals(responseUpdatedPet.getStatusCode(), code);
+        Pet petUpdatedResponse = response.getBody().as(Pet.class);
+        assertEquals(response.getStatusCode(), code);
         assertEquals(petUpdatedResponse.getPetName(), "Rexi");
 
 
@@ -174,7 +164,7 @@ public class ImplementationPetStoreFeature {
 
     @When("I receive status code")
     public void iReceiveStatusCode() {
-        statusGetResponse = when().get(baseUrl + path + queryParam).
+        response = when().get(baseUrl + path + queryParam).
                 then().statusCode(200).log().all().extract().response();
 
     }
@@ -182,7 +172,7 @@ public class ImplementationPetStoreFeature {
 
     @And("I receive valid status")
     public void iReceiveValidCodeResponse() {
-        assertEquals(statusGetResponse.statusCode(), 200);
+        assertEquals(response.statusCode(), 200);
     }
 
     @Given("I want to create another  pet")
@@ -199,15 +189,15 @@ public class ImplementationPetStoreFeature {
 
     @When("I create the new pet resource")
     public void iCreateTheNewPetResource() {
-      anotherPetCreated  = given().when().contentType(ContentType.JSON).body(pet1).post(baseUrl + path).then().log().all().extract().response();
+      response = given().when().contentType(ContentType.JSON).body(pet1).post(baseUrl + path).then().log().all().extract().response();
 
 
     }
 
     @Then("the pet will be created in the database")
     public void thePetWillBeCreatedInTheDatabase() {
-        Pet petResponse = anotherPetCreated.getBody().as(Pet.class);
-        assertEquals(anotherPetCreated.getStatusCode(), 200);
+        Pet petResponse = response.getBody().as(Pet.class);
+        assertEquals(response.getStatusCode(), 200);
         assertEquals(petResponse.getPetStatus(), "not available");
         assertEquals(petResponse.getPetName(), "Max");
     }
@@ -221,39 +211,39 @@ public class ImplementationPetStoreFeature {
 
     @When("I send Get request for specific pet")
     public void iSendGetRequestForSpecificPet() {
-        getPet1SpecificResponse = given().contentType(ContentType.JSON).when().get(baseUrl + path + "/" + pet1Id).
+        response = given().contentType(ContentType.JSON).when().get(baseUrl + path + "/" + pet1Id).
                 then().statusCode(200).log().all().extract().response();
 
     }
 
     @Then("^I can see a valid HTTP code (.*) Response$")
     public void iCanSeeAValidHTTPCodeCodeResponse(int code) {
-        Pet specificPetResponse = getPet1SpecificResponse.getBody().as(Pet.class);
-        assertEquals(getPet1SpecificResponse.getStatusCode(), code);
+        //Pet specificPetResponse = response.getBody().as(Pet.class);
+        assertEquals(response.getStatusCode(), code);
 
 
     }
 
     @And("^The pet name will be (.*)$")
     public void thePetNameWillBeName(String name) {
-        Pet specificPetResponse = getPet1SpecificResponse.getBody().as(Pet.class);
+        Pet specificPetResponse = response.getBody().as(Pet.class);
         assertEquals(specificPetResponse.getPetName(),name);
     }
 
     @Given("I set the  DElETE pet api endpoint")
     public void iSetTheDElETEPet1ApiEndpoint() {
-        deletedResponsepet1 = given().when().delete(baseUrl + path + "/" + pet1Id).then().extract().response();
+        response = given().when().delete(baseUrl + path + "/" + pet1Id).then().extract().response();
 
     }
 
     @When("I send DELETE  request")
     public void iSendDELETERequest() {
-        deletedResponsepet1.getBody().as(DeletedPetResponse.class);
+        response.getBody().as(DeletedPetResponse.class);
     }
 
     @Then("^I receive valid code (.*)$")
     public void iReceiveValidCodeCode(int code) {
-        assertEquals(deletedResponsepet1.getStatusCode(), code);
+        assertEquals(response.getStatusCode(), code);
     }
 
     @Given("I set a new name and a new Id for category section")
@@ -270,14 +260,14 @@ public class ImplementationPetStoreFeature {
     @When("I set a Put Http request for the previous pet created")
     public void iSetAPutHttpRequestForThePreviousPetCreated() {
 
-        responseUpdatedPet = given().when().contentType(ContentType.JSON).body(updatedpet1).put(baseUrl + path).then().log().all().extract().response();
+        response = given().when().contentType(ContentType.JSON).body(updatedpet1).put(baseUrl + path).then().log().all().extract().response();
 
     }
 
     @And("I receive the code request")
     public void iReceiveTheCodeCode() {
-         responseUpdatedPet.getBody().as(Pet.class);
-        assertEquals(responseUpdatedPet.statusCode(),200);
+         response.getBody().as(Pet.class);
+        assertEquals(response.statusCode(),200);
     }
 }
 
