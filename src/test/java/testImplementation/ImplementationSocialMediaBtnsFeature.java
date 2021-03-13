@@ -73,18 +73,23 @@ public class ImplementationSocialMediaBtnsFeature {
     @Then("The user is able to navigate on LinkedIn page")
     public void theUserIsAbleToNavigateOnLinkedInPage() throws InterruptedException {
         baseSetUp.socialMediaButtons.openLinkedInTab();
-        WebElement agreeAndJoinBtn = baseSetUp.driver.findElement(By.id("join-form-submit"));
+        WebElement agreeAndJoinBtn = baseSetUp.driver.findElement(By.xpath("/html/body/header/nav/div/a[2]"));
+        WebElement fieldforLogIn = baseSetUp.driver.findElement(By.xpath("//*[@id=\"first-name\"]"));
         String title = "ALTEX Romania | LinkedIn";
         Thread.sleep(3000);
-        if (agreeAndJoinBtn.isDisplayed()) {
+        try {
             assertTrue(agreeAndJoinBtn.isDisplayed());
-        } else {
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+        }
+        if (fieldforLogIn.isDisplayed())
+            assertTrue(fieldforLogIn.isDisplayed());
+        else {
             assertEquals(title, baseSetUp.driver.getTitle());
-
         }
 
-
     }
+
 
     @When("User clicks on Youtube button")
     public void userClicksOnYoutubeButton() {
