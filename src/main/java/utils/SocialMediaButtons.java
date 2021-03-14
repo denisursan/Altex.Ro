@@ -53,7 +53,7 @@ public class SocialMediaButtons {
 
 
     public void openTwitterTab() {
-        String currentWindowHandle = driver.getWindowHandle();
+       // String currentWindowHandle = driver.getWindowHandle();
         Set<String> allWindowHandles = driver.getWindowHandles();
         Iterator iter = allWindowHandles.iterator();
         while (iter.hasNext()) {
@@ -67,7 +67,7 @@ public class SocialMediaButtons {
     }
 
     public void openLinkedInTab() {
-        String currentWindowHandle = driver.getWindowHandle();
+       // String currentWindowHandle = driver.getWindowHandle();
         Set<String> allWindowHandles = driver.getWindowHandles();
         Iterator iter = allWindowHandles.iterator();
         while (iter.hasNext()) {
@@ -83,7 +83,7 @@ public class SocialMediaButtons {
 
 
     public void openYoutubeInTab() {
-        String currentWindowHandle = driver.getWindowHandle();
+       //String currentWindowHandle = driver.getWindowHandle();
         Set<String> allWindowHandles = driver.getWindowHandles();
         Iterator iter = allWindowHandles.iterator();
         while (iter.hasNext()) {

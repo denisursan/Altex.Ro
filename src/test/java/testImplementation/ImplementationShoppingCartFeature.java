@@ -76,8 +76,11 @@ public class ImplementationShoppingCartFeature {
     @Then("User clicks on + sign 2 times and on - one time in order to increase and decrese the quantity of the products")
     public void userClickOnSignInOrderToIncreaseTheQuantityOfTheProducts() throws InterruptedException {
         baseSetUp.utilsButtons.getIncreaseNumberOfItemsBtnFromCosulMeu().click();
+        Thread.sleep(3000);
         baseSetUp.utilsButtons.getIncreaseNumberOfItemsBtnFromCosulMeu().click();
+        Thread.sleep(3000);
         baseSetUp.utilsButtons.getDecreaseNumberOfItemsBtnFromCosulMeu().click();
+        Thread.sleep(3000);
         js.executeScript("arguments[0].scrollIntoView(true);", baseSetUp.utilsButtons.getDecreaseNumberOfItemsBtnFromCosulMeu());
         List<WebElement> cartItems = baseSetUp.driver.findElements(By.className("Cart-itemContainer"));
         for (WebElement cartItem :

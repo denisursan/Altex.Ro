@@ -7,7 +7,7 @@ import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import petStore.Order;
-import response.DeletedPetResponse;
+
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;

@@ -18,7 +18,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AltexWebsiteSeleniumTests {
-    String price;
     MainPage mainPage;
     WebDriver driver;
     LogInPage logInPage;

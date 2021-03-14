@@ -1,4 +1,4 @@
-Feature: CRUD feature for order database
+Feature: CRUD features for order database
 
   Scenario Outline: Create a new order
     Given I want to create a new order with in the database

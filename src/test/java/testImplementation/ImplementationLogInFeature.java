@@ -27,7 +27,7 @@ public class ImplementationLogInFeature {
     }
 
     @Then("^The user is able to LogIn$")
-    public void theUserIsAbleToLogIn() throws InterruptedException {
+    public void theUserIsAbleToLogIn() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/ul/li[4]/a")));
         assertTrue(baseSetUp.mainPage.getComenzileMeleBtn().isDisplayed());
     }
@@ -38,6 +38,7 @@ public class ImplementationLogInFeature {
     }
 
     @When("^I enter valid email (.*) and invalid password (.*)$")
+    @When("^I enter invalid email (.*) and valid password (.*)")
     public void iEnterValidUsernameAndInvalidPassword(String email, String password) {
         baseSetUp.logInPage.insertEmailAndPassword(email, password);
     }
@@ -47,14 +48,9 @@ public class ImplementationLogInFeature {
         assertTrue(baseSetUp.logInPage.getAutentificareBtn().isDisplayed());
     }
 
-    @When("^I enter invalid email (.*) and valid password (.*)")
-    public void iEnterInvalidUsernameAndValidPassword(String email, String password) {
-
-        baseSetUp.logInPage.insertEmailAndPassword(email, password);
-    }
 
     @And("^The user is able to Log Out$")
-    public void theUserIsAbleToLogOut() throws InterruptedException {
+    public void theUserIsAbleToLogOut()  {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/div/div/div[2]/div[3]/div[1]/div/div[2]/div/ul/li[11]/a")));
         baseSetUp.mainPage.getLogOutBtn().click();
     }
